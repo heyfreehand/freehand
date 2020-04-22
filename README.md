@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://freehand.style/" target="_blank"><img width="250" style="margin: 20px auto;" src="https://freehand.style/img/freehand-logo.svg"></a><br>
-  A utility-first CSS framework for rapidly building custom user interfaces.
+  A utility-first CSS library for rapidly building custom user interfaces.
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@ For help, discussion about best practices, or any other conversation that would 
 
 [Discuss Freehand on GitHub](https://github.com/megadeluxe/discuss/issues?q=is%3Aissue+sort%3Aupdated-desc)
 
-For casual chit-chat with others using the framework:
+For casual chit-chat with others using the library:
 
 [Join the Freehand Discord Server](https://discord.gg/7NF8GNe)
 
