@@ -1,0 +1,11 @@
+@responsive {
+    .example {
+        color: red;
+    }
+}
+
+@freehand screens;
+
+.john {
+    content: "wick";
+}

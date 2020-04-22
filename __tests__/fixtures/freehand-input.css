@@ -1,0 +1,12 @@
+@freehand base;
+
+@freehand components;
+
+@freehand utilities;
+
+@responsive {
+  .example {
+    @apply .font-bold;
+    color: theme('colors.red.500');
+  }
+}
