@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://freehand.style/" target="_blank"><img width="250" style="margin: 20px auto;" src="https://freehand.style/img/freehand-logo.svg"></a><br>
+  <a href="https://freehand.style/" target="_blank"><img width="250" style="margin: 20px auto;" src="https://freehand.style/img/freehand-portrait.svg"></a><br>
   A utility-first CSS library for rapidly building custom user interfaces.
 </p>
 
