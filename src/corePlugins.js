@@ -2,7 +2,9 @@ import preflight from './plugins/preflight'
 import container from './plugins/container'
 import accessibility from './plugins/accessibility'
 import appearance from './plugins/appearance'
+import backface from './plugins/backface'
 import backgroundAttachment from './plugins/backgroundAttachment'
+import backgroundBlend from './plugins/backgroundBlend'
 import backgroundColor from './plugins/backgroundColor'
 import backgroundPosition from './plugins/backgroundPosition'
 import backgroundRepeat from './plugins/backgroundRepeat'
@@ -11,24 +13,20 @@ import borderCollapse from './plugins/borderCollapse'
 import borderColor from './plugins/borderColor'
 import borderRadius from './plugins/borderRadius'
 import borderStyle from './plugins/borderStyle'
-import borderWidth from './plugins/borderWidth'
+import borderSize from './plugins/borderSize'
 import boxSizing from './plugins/boxSizing'
 import cursor from './plugins/cursor'
 import display from './plugins/display'
 import flexDirection from './plugins/flexDirection'
 import flexWrap from './plugins/flexWrap'
-import alignItems from './plugins/alignItems'
-import alignSelf from './plugins/alignSelf'
 import justifyContent from './plugins/justifyContent'
-import alignContent from './plugins/alignContent'
+import alignment from './plugins/alignment'
 import flex from './plugins/flex'
 import flexGrow from './plugins/flexGrow'
 import flexShrink from './plugins/flexShrink'
 import order from './plugins/order'
 import float from './plugins/float'
 import clear from './plugins/clear'
-import fontFamily from './plugins/fontFamily'
-import fontWeight from './plugins/fontWeight'
 import height from './plugins/height'
 import lineHeight from './plugins/lineHeight'
 import listStylePosition from './plugins/listStylePosition'
@@ -50,17 +48,20 @@ import position from './plugins/position'
 import inset from './plugins/inset'
 import resize from './plugins/resize'
 import boxShadow from './plugins/boxShadow'
+import dropShadow from './plugins/dropShadow'
 import fill from './plugins/fill'
 import stroke from './plugins/stroke'
 import strokeWidth from './plugins/strokeWidth'
 import tableLayout from './plugins/tableLayout'
 import textAlign from './plugins/textAlign'
 import textColor from './plugins/textColor'
-import fontSize from './plugins/fontSize'
-import fontStyle from './plugins/fontStyle'
-import textTransform from './plugins/textTransform'
 import textDecoration from './plugins/textDecoration'
-import fontSmoothing from './plugins/fontSmoothing'
+import textFamily from './plugins/textFamily'
+import textSize from './plugins/textSize'
+import textSmoothing from './plugins/textSmoothing'
+import textStyle from './plugins/textStyle'
+import textTransform from './plugins/textTransform'
+import textWeight from './plugins/textWeight'
 import letterSpacing from './plugins/letterSpacing'
 import userSelect from './plugins/userSelect'
 import verticalAlign from './plugins/verticalAlign'
@@ -98,7 +99,9 @@ export default function({ corePlugins: corePluginConfig }) {
     container,
     accessibility,
     appearance,
+    backface,
     backgroundAttachment,
+    backgroundBlend,
     backgroundColor,
     backgroundPosition,
     backgroundRepeat,
@@ -107,24 +110,20 @@ export default function({ corePlugins: corePluginConfig }) {
     borderColor,
     borderRadius,
     borderStyle,
-    borderWidth,
+    borderSize,
     boxSizing,
     cursor,
     display,
     flexDirection,
     flexWrap,
-    alignItems,
-    alignSelf,
     justifyContent,
-    alignContent,
+    alignment,
     flex,
     flexGrow,
     flexShrink,
     order,
     float,
     clear,
-    fontFamily,
-    fontWeight,
     height,
     lineHeight,
     listStylePosition,
@@ -146,17 +145,20 @@ export default function({ corePlugins: corePluginConfig }) {
     inset,
     resize,
     boxShadow,
+    dropShadow,
     fill,
     stroke,
     strokeWidth,
     tableLayout,
     textAlign,
     textColor,
-    fontSize,
-    fontStyle,
-    textTransform,
     textDecoration,
-    fontSmoothing,
+    textFamily,
+    textSize,
+    textSmoothing,
+    textStyle,
+    textTransform,
+    textWeight,
     letterSpacing,
     userSelect,
     verticalAlign,

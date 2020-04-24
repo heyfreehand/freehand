@@ -1,3 +1,4 @@
+// Done
 import _ from 'lodash'
 
 export default function() {
@@ -5,7 +6,7 @@ export default function() {
     addUtilities(
       _.fromPairs(
         _.map(theme('flexShrink'), (value, modifier) => {
-          const className = modifier === 'default' ? 'flex-shrink' : `flex-shrink\:${modifier}`
+          const className = modifier === 'default' ? 'shrink' : `shrink\:${modifier}`
           return [
             `.${e(className)}`,
             {

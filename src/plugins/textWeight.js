@@ -1,11 +1,12 @@
+// Done
 import _ from 'lodash'
 
 export default function() {
   return function({ addUtilities, e, theme, variants }) {
     const utilities = _.fromPairs(
-      _.map(theme('fontWeight'), (value, modifier) => {
+      _.map(theme('textWeight'), (value, modifier) => {
         return [
-          `.${e(`font\:${modifier}`)}`,
+          `.${e(`text\:${modifier}`)}`,
           {
             'font-weight': value,
           },
@@ -13,6 +14,6 @@ export default function() {
       })
     )
 
-    addUtilities(utilities, variants('fontWeight'))
+    addUtilities(utilities, variants('textWeight'))
   }
 }

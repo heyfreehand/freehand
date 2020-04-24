@@ -1,3 +1,4 @@
+// Done
 import _ from 'lodash'
 
 export default function() {
@@ -15,11 +16,11 @@ export default function() {
     ]
 
     const utilities = _.flatMap(generators, generator => {
-      return _.flatMap(theme('borderWidth'), (value, modifier) => {
+      return _.flatMap(theme('borderSize'), (value, modifier) => {
         return generator(value, modifier === 'default' ? '' : `\:${modifier}`)
       })
     })
 
-    addUtilities(utilities, variants('borderWidth'))
+    addUtilities(utilities, variants('borderSize'))
   }
 }

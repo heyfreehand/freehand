@@ -265,7 +265,7 @@ test('plugins can add base styles with object syntax', () => {
             maxWidth: '100%',
           },
           button: {
-            fontFamily: 'inherit',
+            textFamily: 'inherit',
           },
         })
       },

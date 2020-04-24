@@ -1264,7 +1264,7 @@ test('more than two config objects can be resolved', () => {
   const firstConfig = {
     theme: {
       extend: {
-        fontFamily: () => ({
+        textFamily: () => ({
           code: ['Menlo', 'monospace'],
         }),
         colors: {
@@ -1286,7 +1286,7 @@ test('more than two config objects can be resolved', () => {
     separator: ':',
     theme: {
       extend: {
-        fontFamily: {
+        textFamily: {
           quote: ['Helvetica', 'serif'],
         },
         colors: {
@@ -1306,7 +1306,7 @@ test('more than two config objects can be resolved', () => {
     separator: ':',
     theme: {
       extend: {
-        fontFamily: {
+        textFamily: {
           hero: ['Futura', 'sans-serif'],
         },
         colors: {
@@ -1327,7 +1327,7 @@ test('more than two config objects can be resolved', () => {
     important: false,
     separator: ':',
     theme: {
-      fontFamily: {
+      textFamily: {
         body: ['Arial', 'sans-serif'],
         display: ['Georgia', 'serif'],
       },
@@ -1348,7 +1348,7 @@ test('more than two config objects can be resolved', () => {
     important: false,
     separator: ':',
     theme: {
-      fontFamily: {
+      textFamily: {
         body: ['Arial', 'sans-serif'],
         display: ['Georgia', 'serif'],
         code: ['Menlo', 'monospace'],

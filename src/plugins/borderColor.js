@@ -1,3 +1,4 @@
+// Done
 import _ from 'lodash'
 import flattenColorPalette from '../util/flattenColorPalette'
 

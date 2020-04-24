@@ -2,22 +2,22 @@ export default function() {
   return function({ addUtilities, variants }) {
     addUtilities(
       {
-        '.justify-start': {
+        '.jc\\:start': {
           'justify-content': 'flex-start',
         },
-        '.justify-end': {
+        '.jc\\:end': {
           'justify-content': 'flex-end',
         },
-        '.justify-center': {
+        '.jc\\:center': {
           'justify-content': 'center',
         },
-        '.justify-between': {
+        '.jc\\:between': {
           'justify-content': 'space-between',
         },
-        '.justify-around': {
+        '.jc\\:around': {
           'justify-content': 'space-around',
         },
-        '.justify-evenly': {
+        '.jc\\:evenly': {
           'justify-content': 'space-evenly',
         },
       },

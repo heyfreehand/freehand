@@ -1,17 +1,18 @@
+// Done
 export default function() {
   return function({ addUtilities, variants }) {
     addUtilities(
       {
-        '.antialiased': {
+        '.text\\:smooth': {
           '-webkit-font-smoothing': 'antialiased',
           '-moz-osx-font-smoothing': 'grayscale',
         },
-        '.subpixel-antialiased': {
+        '.text\\:rough': {
           '-webkit-font-smoothing': 'auto',
           '-moz-osx-font-smoothing': 'auto',
         },
       },
-      variants('fontSmoothing')
+      variants('textSmoothing')
     )
   }
 }

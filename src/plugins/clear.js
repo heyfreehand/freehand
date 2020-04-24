@@ -1,3 +1,4 @@
+// Done
 export default function() {
   return function({ addUtilities, variants }) {
     addUtilities(
@@ -5,7 +6,7 @@ export default function() {
         '.clear\\:left': { clear: 'left' },
         '.clear\\:right': { clear: 'right' },
         '.clear\\:both': { clear: 'both' },
-        '.clear\\:none': { clear: 'none' },
+        '.clear\\:off': { clear: 'none' },
       },
       variants('clear')
     )

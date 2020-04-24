@@ -2,7 +2,7 @@ import configurePlugins from '../src/util/configurePlugins'
 
 test('setting a plugin to false removes it', () => {
   const plugins = {
-    fontSize: () => 'fontSize',
+    textSize: () => 'textSize',
     display: () => 'display',
     backgroundPosition: () => 'backgroundPosition',
   }
@@ -14,12 +14,12 @@ test('setting a plugin to false removes it', () => {
     plugins
   )
 
-  expect(configuredPlugins).toEqual(['fontSize', 'backgroundPosition'])
+  expect(configuredPlugins).toEqual(['textSize', 'backgroundPosition'])
 })
 
 test('passing only false removes all plugins', () => {
   const plugins = {
-    fontSize: () => 'fontSize',
+    textSize: () => 'textSize',
     display: () => 'display',
     backgroundPosition: () => 'backgroundPosition',
   }
@@ -31,7 +31,7 @@ test('passing only false removes all plugins', () => {
 
 test('passing an array whitelists plugins', () => {
   const plugins = {
-    fontSize: () => 'fontSize',
+    textSize: () => 'textSize',
     display: () => 'display',
     backgroundPosition: () => 'backgroundPosition',
   }

@@ -1,9 +1,10 @@
+// Done
 import _ from 'lodash'
 
 export default function() {
   return function({ addUtilities, e, theme, variants }) {
     const utilities = _.fromPairs(
-      _.map(theme('fontSize'), (value, modifier) => {
+      _.map(theme('textSize'), (value, modifier) => {
         return [
           `.${e(`text\:${modifier}`)}`,
           {
@@ -13,6 +14,6 @@ export default function() {
       })
     )
 
-    addUtilities(utilities, variants('fontSize'))
+    addUtilities(utilities, variants('textSize'))
   }
 }
