@@ -1,10 +1,11 @@
+// Done
 import _ from 'lodash'
 import prefixNegativeModifiers from '../util/prefixNegativeModifiers'
 
 export default function() {
   return function({ addUtilities, theme, variants, e }) {
     const utilities = _.fromPairs(
-      _.map(theme('letterSpacing'), (value, modifier) => {
+      _.map(theme('textTracking'), (value, modifier) => {
         return [
           `.${e(prefixNegativeModifiers('tracking', modifier))}`,
           {
@@ -14,6 +15,6 @@ export default function() {
       })
     )
 
-    addUtilities(utilities, variants('letterSpacing'))
+    addUtilities(utilities, variants('textTracking'))
   }
 }

@@ -1,19 +1,19 @@
 import _ from 'lodash'
 import escapeClassName from '../../src/util/escapeClassName'
-import plugin from '../../src/plugins/letterSpacing'
+import plugin from '../../src/plugins/textTracking'
 
 test('letter spacing can use negative prefix syntax', () => {
   const addedUtilities = []
 
   const config = {
     theme: {
-      letterSpacing: {
+      textTracking: {
         '-1': '-0.025em',
         '1': '0.025em',
       },
     },
     variants: {
-      letterSpacing: ['responsive'],
+      textTracking: ['responsive'],
     },
   }
 

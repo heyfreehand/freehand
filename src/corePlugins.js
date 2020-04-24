@@ -28,7 +28,7 @@ import order from './plugins/order'
 import float from './plugins/float'
 import clear from './plugins/clear'
 import height from './plugins/height'
-import lineHeight from './plugins/lineHeight'
+import textLeading from './plugins/textLeading'
 import listStylePosition from './plugins/listStylePosition'
 import listStyleType from './plugins/listStyleType'
 import margin from './plugins/margin'
@@ -54,20 +54,21 @@ import stroke from './plugins/stroke'
 import strokeWidth from './plugins/strokeWidth'
 import tableLayout from './plugins/tableLayout'
 import textAlign from './plugins/textAlign'
+import textCase from './plugins/textCase'
 import textColor from './plugins/textColor'
-import textDecoration from './plugins/textDecoration'
+import textLine from './plugins/textLine'
 import textFamily from './plugins/textFamily'
+import textShadow from './plugins/textShadow'
 import textSize from './plugins/textSize'
 import textSmoothing from './plugins/textSmoothing'
 import textStyle from './plugins/textStyle'
-import textTransform from './plugins/textTransform'
+import textTracking from './plugins/textTracking'
 import textWeight from './plugins/textWeight'
-import letterSpacing from './plugins/letterSpacing'
+import textWhitespace from './plugins/textWhitespace'
+import textWordBreak from './plugins/textWordBreak'
 import userSelect from './plugins/userSelect'
 import verticalAlign from './plugins/verticalAlign'
 import visibility from './plugins/visibility'
-import whitespace from './plugins/whitespace'
-import wordBreak from './plugins/wordBreak'
 import width from './plugins/width'
 import zIndex from './plugins/zIndex'
 import gap from './plugins/gap'
@@ -125,7 +126,7 @@ export default function({ corePlugins: corePluginConfig }) {
     float,
     clear,
     height,
-    lineHeight,
+    textLeading,
     listStylePosition,
     listStyleType,
     margin,
@@ -151,20 +152,21 @@ export default function({ corePlugins: corePluginConfig }) {
     strokeWidth,
     tableLayout,
     textAlign,
+    textCase,
     textColor,
-    textDecoration,
+    textLine,
     textFamily,
+    textShadow,
     textSize,
     textSmoothing,
     textStyle,
-    textTransform,
+    textTracking,
     textWeight,
-    letterSpacing,
+    textWhitespace,
+    textWordBreak,
     userSelect,
     verticalAlign,
     visibility,
-    whitespace,
-    wordBreak,
     width,
     zIndex,
     gap,

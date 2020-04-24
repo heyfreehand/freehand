@@ -4,16 +4,16 @@ import _ from 'lodash'
 export default function() {
   return function({ addUtilities, e, theme, variants }) {
     const utilities = _.fromPairs(
-      _.map(theme('lineHeight'), (value, modifier) => {
+      _.map(theme('textShadow'), (value, modifier) => {
         return [
-          `.${e(`leading\:${modifier}`)}`,
+          `.${e(`text\:shadow\:${modifier}`)}`,
           {
-            'line-height': value,
+            'text-shadow': value,
           },
         ]
       })
     )
 
-    addUtilities(utilities, variants('lineHeight'))
+    addUtilities(utilities, variants('textShadow'))
   }
 }
