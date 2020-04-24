@@ -19,7 +19,7 @@ import cursor from './plugins/cursor'
 import display from './plugins/display'
 import flexDirection from './plugins/flexDirection'
 import flexWrap from './plugins/flexWrap'
-import justifyContent from './plugins/justifyContent'
+import justification from './plugins/justification'
 import alignment from './plugins/alignment'
 import flex from './plugins/flex'
 import flexGrow from './plugins/flexGrow'
@@ -50,6 +50,7 @@ import resize from './plugins/resize'
 import boxShadow from './plugins/boxShadow'
 import dropShadow from './plugins/dropShadow'
 import fill from './plugins/fill'
+import filter from './plugins/filter'
 import stroke from './plugins/stroke'
 import strokeWidth from './plugins/strokeWidth'
 import tableLayout from './plugins/tableLayout'
@@ -117,7 +118,7 @@ export default function({ corePlugins: corePluginConfig }) {
     display,
     flexDirection,
     flexWrap,
-    justifyContent,
+    justification,
     alignment,
     flex,
     flexGrow,
@@ -148,6 +149,7 @@ export default function({ corePlugins: corePluginConfig }) {
     boxShadow,
     dropShadow,
     fill,
+    filter,
     stroke,
     strokeWidth,
     tableLayout,
