@@ -29,8 +29,8 @@ import float from './plugins/float'
 import clear from './plugins/clear'
 import height from './plugins/height'
 import textLeading from './plugins/textLeading'
-import listStylePosition from './plugins/listStylePosition'
-import listStyleType from './plugins/listStyleType'
+import listPosition from './plugins/listPosition'
+import listStyle from './plugins/listStyle'
 import margin from './plugins/margin'
 import maxHeight from './plugins/maxHeight'
 import maxWidth from './plugins/maxWidth'
@@ -128,8 +128,8 @@ export default function({ corePlugins: corePluginConfig }) {
     clear,
     height,
     textLeading,
-    listStylePosition,
-    listStyleType,
+    listPosition,
+    listStyle,
     margin,
     maxHeight,
     maxWidth,

@@ -3,7 +3,7 @@ import _ from 'lodash'
 export default function() {
   return function({ addUtilities, e, theme, variants }) {
     const utilities = _.fromPairs(
-      _.map(theme('listStyleType'), (value, modifier) => {
+      _.map(theme('listStyle'), (value, modifier) => {
         return [
           `.${e(`list\:${modifier}`)}`,
           {
@@ -13,6 +13,6 @@ export default function() {
       })
     )
 
-    addUtilities(utilities, variants('listStyleType'))
+    addUtilities(utilities, variants('listStyle'))
   }
 }
