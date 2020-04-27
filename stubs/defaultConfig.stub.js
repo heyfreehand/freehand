@@ -685,7 +685,6 @@ module.exports = {
     },
   },
   variants: {
-    accessibility: ['responsive', 'focus'],
     alignment: ['responsive'],
     appearance: ['responsive'],
     backface: ['responsive'],
