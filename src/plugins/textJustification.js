@@ -8,7 +8,7 @@ export default function() {
         '.text\\:right': { 'text-align': 'right' },
         '.text\\:justify': { 'text-align': 'justify' },
       },
-      variants('textAlign')
+      variants('textJustification')
     )
   }
 }

@@ -41,12 +41,15 @@ import objectPosition from './plugins/objectPosition'
 import opacity from './plugins/opacity'
 import outline from './plugins/outline'
 import overflow from './plugins/overflow'
+import overScroll from './plugins/overScroll'
 import padding from './plugins/padding'
 import placeholderColor from './plugins/placeholderColor'
 import pointerEvents from './plugins/pointerEvents'
 import position from './plugins/position'
 import inset from './plugins/inset'
 import resize from './plugins/resize'
+import select from './plugins/select'
+import smoothScroll from './plugins/smoothScroll'
 import boxShadow from './plugins/boxShadow'
 import dropShadow from './plugins/dropShadow'
 import fill from './plugins/fill'
@@ -54,7 +57,7 @@ import filter from './plugins/filter'
 import stroke from './plugins/stroke'
 import strokeWidth from './plugins/strokeWidth'
 import tableLayout from './plugins/tableLayout'
-import textAlign from './plugins/textAlign'
+import textJustification from './plugins/textJustification'
 import textCase from './plugins/textCase'
 import textColor from './plugins/textColor'
 import textLine from './plugins/textLine'
@@ -64,11 +67,11 @@ import textSize from './plugins/textSize'
 import textSmoothing from './plugins/textSmoothing'
 import textStyle from './plugins/textStyle'
 import textTracking from './plugins/textTracking'
+import textTruncation from './plugins/textTruncation'
 import textWeight from './plugins/textWeight'
 import textWhitespace from './plugins/textWhitespace'
 import textWordBreak from './plugins/textWordBreak'
-import userSelect from './plugins/userSelect'
-import verticalAlign from './plugins/verticalAlign'
+import textAlignment from './plugins/textAlignment'
 import visibility from './plugins/visibility'
 import width from './plugins/width'
 import zIndex from './plugins/zIndex'
@@ -140,12 +143,15 @@ export default function({ corePlugins: corePluginConfig }) {
     opacity,
     outline,
     overflow,
+    overScroll,
     padding,
     placeholderColor,
     pointerEvents,
     position,
     inset,
     resize,
+    select,
+    smoothScroll,
     boxShadow,
     dropShadow,
     fill,
@@ -153,7 +159,7 @@ export default function({ corePlugins: corePluginConfig }) {
     stroke,
     strokeWidth,
     tableLayout,
-    textAlign,
+    textJustification,
     textCase,
     textColor,
     textLine,
@@ -163,11 +169,11 @@ export default function({ corePlugins: corePluginConfig }) {
     textSmoothing,
     textStyle,
     textTracking,
+    textTruncation,
     textWeight,
     textWhitespace,
     textWordBreak,
-    userSelect,
-    verticalAlign,
+    textAlignment,
     visibility,
     width,
     zIndex,

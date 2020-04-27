@@ -1,11 +1,12 @@
+// Done
 export default function() {
   return function({ addUtilities, variants }) {
     addUtilities(
       {
-        '.resize-none': { resize: 'none' },
-        '.resize-y': { resize: 'vertical' },
-        '.resize-x': { resize: 'horizontal' },
+        '.resize\\:off': { resize: 'none' },
         '.resize': { resize: 'both' },
+        '.resize\\:y': { resize: 'vertical' },
+        '.resize\\:x': { resize: 'horizontal' },
       },
       variants('resize')
     )

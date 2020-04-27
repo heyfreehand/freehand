@@ -9,11 +9,6 @@ export default function() {
         },
         '.text\\:break\\:words': { 'overflow-wrap': 'break-word' },
         '.text\\:break\\:all': { 'word-break': 'break-all' },
-        '.text\\:truncate': {
-          overflow: 'hidden',
-          'text-overflow': 'ellipsis',
-          'white-space': 'nowrap',
-        },
       },
       variants('textWordBreak')
     )
