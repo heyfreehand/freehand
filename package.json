@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "style": "dist/freehand.css",
-  "repository": "https://github.com/tryfreehand/freehand.git",
+  "repository": "https://github.com/heyfreehand/freehand.git",
   "bugs": "https://github.com/megadeluxe/freehand/issues",
   "homepage": "https://freehand.style",
   "bin": {
