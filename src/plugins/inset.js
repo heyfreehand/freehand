@@ -1,11 +1,10 @@
 import _ from 'lodash'
-import prefixNegativeModifiers from '../util/prefixNegativeModifiers'
 
 export default function() {
   return function({ addUtilities, e, theme, variants }) {
     const generators = [
       (size, modifier) => ({
-        [`.${e(prefixNegativeModifiers('inset', modifier))}`]: {
+        [`.${e(`pin${modifier}`)}`]: {
           top: `${size}`,
           right: `${size}`,
           bottom: `${size}`,
@@ -13,25 +12,45 @@ export default function() {
         },
       }),
       (size, modifier) => ({
-        [`.${e(prefixNegativeModifiers('inset-y', modifier))}`]: {
+        [`.${e(`pin\:y${modifier}`)}`]: {
           top: `${size}`,
           bottom: `${size}`,
         },
-        [`.${e(prefixNegativeModifiers('inset-x', modifier))}`]: {
+        [`.${e(`pin\:x${modifier}`)}`]: {
           right: `${size}`,
           left: `${size}`,
         },
       }),
       (size, modifier) => ({
-        [`.${e(prefixNegativeModifiers('top', modifier))}`]: { top: `${size}` },
-        [`.${e(prefixNegativeModifiers('right', modifier))}`]: { right: `${size}` },
-        [`.${e(prefixNegativeModifiers('bottom', modifier))}`]: { bottom: `${size}` },
-        [`.${e(prefixNegativeModifiers('left', modifier))}`]: { left: `${size}` },
+        [`.${e(`pin\:t${modifier}`)}`]: { top: `${size}` },
+        [`.${e(`pin\:r${modifier}`)}`]: { right: `${size}` },
+        [`.${e(`pin\:b${modifier}`)}`]: { bottom: `${size}` },
+        [`.${e(`pin\:l${modifier}`)}`]: { left: `${size}` },
+      }),
+      (size, modifier) => ({
+        [`.${e(`pin\:tl${modifier}`)}`]: {
+          top: `${size}`,
+          left: `${size}`,
+        },
+        [`.${e(`pin\:tr${modifier}`)}`]: {
+          top: `${size}`,
+          right: `${size}`,
+        },
+        [`.${e(`pin\:br${modifier}`)}`]: {
+          bottom: `${size}`,
+          right: `${size}`,
+        },
+        [`.${e(`pin\:bl${modifier}`)}`]: {
+          bottom: `${size}`,
+          left: `${size}`,
+        },
       }),
     ]
 
     const utilities = _.flatMap(generators, generator => {
-      return _.flatMap(theme('inset'), generator)
+      return _.flatMap(theme('inset'), (value, modifier) => {
+        return generator(value, modifier === 'default' ? '' : `\:${modifier}`)
+      })
     })
 
     addUtilities(utilities, variants('inset'))

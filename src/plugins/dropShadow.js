@@ -1,6 +1,5 @@
 // Done
 import _ from 'lodash'
-import prefixNegativeModifiers from '../util/prefixNegativeModifiers'
 
 export default function() {
   return function({ addUtilities, e, theme, variants }) {

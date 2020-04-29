@@ -381,8 +381,8 @@ module.exports = {
       screen: '100vh',
     }),
     inset: {
-      '0': '0',
-      auto: 'auto',
+      default: '0',
+      off: 'auto',
     },
     textLeading: {
       'off': '0',
