@@ -46,6 +46,10 @@ import placeholderColor from './plugins/placeholderColor'
 import pointerEvents from './plugins/pointerEvents'
 import position from './plugins/position'
 import inset from './plugins/inset'
+import top from './plugins/top'
+import right from './plugins/right'
+import bottom from './plugins/bottom'
+import left from './plugins/left'
 import resize from './plugins/resize'
 import select from './plugins/select'
 import smoothScroll from './plugins/smoothScroll'
@@ -147,6 +151,10 @@ export default function({ corePlugins: corePluginConfig }) {
     pointerEvents,
     position,
     inset,
+    top,
+    right,
+    bottom,
+    left,
     resize,
     select,
     smoothScroll,

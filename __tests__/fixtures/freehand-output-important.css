@@ -441,7 +441,7 @@ html {
  *    need to set the `border-width` property instead of the entire `border`
  *    shorthand, making our border utilities much more straightforward to compose.
  *
- *    https://github.com/megadeluxe/freehand/pull/116
+ *    https://github.com/heyfreehand/freehand/pull/116
  */
 
 *,
@@ -468,7 +468,7 @@ hr {
  * The Normalize reset is unnecessary for us since we default the border-width
  * to 0 on all elements.
  *
- * https://github.com/megadeluxe/freehand/issues/362
+ * https://github.com/heyfreehand/freehand/issues/362
  */
 
 img {

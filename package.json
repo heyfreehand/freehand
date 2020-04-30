@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "style": "dist/freehand.css",
   "repository": "https://github.com/heyfreehand/freehand.git",
-  "bugs": "https://github.com/megadeluxe/freehand/issues",
+  "bugs": "https://github.com/heyfreehand/freehand/issues",
   "homepage": "https://freehand.style",
   "bin": {
     "freehand": "lib/cli.js"
