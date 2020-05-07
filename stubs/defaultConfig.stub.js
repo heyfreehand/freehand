@@ -315,13 +315,13 @@ module.exports = {
       'highlight:inner': '0 0 0 1px hsl(214, 100%, 68%) inset, 0 0 0 3px hsl(214, 100%, 80%) inset',
     },
     container: {},
-    paddingWidth: theme => ({
+    paddedWidth: theme => ({
       width: {
-        ...pick(theme('spacing'), '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'),
+        ...pick(theme('spacing'), '12', '13', '14', '15', '16', '17', '18', '19', '20'),
       },
       padding: {
         default: '0',
-        ...pick(theme('spacing'), '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
+        ...pick(theme('spacing'), '1', '2', '3', '4', '5', '6'),
       }
     }),
     marginWidth: {},
@@ -893,7 +893,7 @@ module.exports = {
     outline: ['responsive', 'focus'],
     overflow: ['responsive'],
     padding: ['responsive'],
-    paddingWidth: ['responsive'],
+    paddedWidth: ['responsive'],
     placeholderColor: ['responsive', 'focus'],
     pointerEvents: ['responsive'],
     position: ['responsive'],
