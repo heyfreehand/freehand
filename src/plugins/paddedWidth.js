@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import reduceCalc from 'reduce-css-calc'
 
 module.exports = function() {
   return function({ addComponents, e, theme }) {
@@ -22,8 +23,8 @@ module.exports = function() {
           return [
             [`.${e(`pw:${widthModifier}-${paddingModifier}`)}`],
             {
-              'padding-left': `calc(50vw - (${widthValue} - ${paddingValue} * 2) / 2)`,
-              'padding-right': `calc(50vw - (${widthValue} - ${paddingValue} * 2) / 2)`,
+              'padding-left': reduceCalc(`calc(50vw - (${widthValue} - ${paddingValue} * 2) / 2)`),
+              'padding-right': reduceCalc(`calc(50vw - (${widthValue} - ${paddingValue} * 2) / 2)`),
             }
           ]
         })
