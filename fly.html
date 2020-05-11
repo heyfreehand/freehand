@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/dist/freehand.css">
+  <title>Hello, world!</title>
+</head>
+
+<article>
+  <header class="relative bg:violet-07 pw:18-3 py:10 sm:pt:8 sm:pb:9 flex ai:center jc:between text:white text:shadow:lg md:flex:col md:jc:center">
+    <!-- = img_tag "sky-cover.png", srcset: {"sky-cover@2x.png" => "2x"}, alt: "", class: "absolute pin w:full h:full fit:cover opacity:50 move:z" -->
+    <section class="relative pr:5 md:pr:0 py:5 max-w:15 md:max-w:16 md:text:center">
+      <h1 class="text:11x md:text:10x leading:xs tracking:sm max-w:15 md:max-w md:mx mb:2">Deploy app servers close to your users</h1>
+      <p class="text:xl mb:3 text:lightest-blue max-w:15 mx">Deploy the world’s fastest applications, delight your users, and only pay for what you use. Sounds good? Learn more about hosting your <a class="text:semibold text:green active:text:dark-green" href="/docs/getting-started/golang/">Golang</a>, <a class="text:semibold text:green active:text:dark-green" href="/docs/speedrun/">Docker</a>, or <a class="text:semibold text:green active:text:dark-green" href="/docs/getting-started/node/">Node.js</a> application.</p>
+      <a class="button:xl button:turquoise-gradient mb:1 mr:6p" href="/docs/hands-on/start/">Get started&nbsp;&nbsp;&rarr;</a>
+    </section>
+    <!-- = img_tag "global-app-hosting.png", srcset: {"global-app-hosting@2x.png" => "2x"}, alt: "The Fly balloon mascot releasing apps into the wild", class: "relative max-w:13 mx md:hide:all" -->
+    <!-- = slant "var(--lightest-silver)" -->
+  </header>
+<!--     
+  section class="relative pw:18-3 py:8 mx text:lg bg:white-y-gradient"
+
+    figure class="grid col:auto-span md:col:2 sm:col:span gap:6 ai:center mb:8 ji:end sm:ji:start"
+      = img_tag "networking.png", srcset: {"networking@2x.png" => "2x"}, alt: "The Fly balloon mascot releasing apps into the wild", class: "w:14"
+      figcaption class="max-w:14 sm:max-w:15"
+        h2 class="flex flex:col text:6x"
+          | Powerful networking
+          small class="order:-1 text:xs text:smallcaps leading:xl text:dark-blue" Route with ease
+        p class="text:lightest-gray m:0" Go beyond HTTP and ship any kind of network service. Have a spiffy gRPC backend? No problem. Want to do custom TLS? Also cool.
+  
+    figure class="grid col:auto-span md:col:2 sm:col:span gap:6 ai:center mb:8 ji:end sm:ji:start"
+      = img_tag "deployment.png", srcset: {"deployment@2x.png" => "2x"}, alt: "The Fly balloon mascot releasing apps into the wild", class: "ml md:m:0 min-sm:order:1 w:14"
+      figcaption class="max-w:14 sm:max-w:15"
+        h2 class="flex flex:col text:6x" 
+          | Deploy all runtimes
+          small class="order:-1 text:xs text:smallcaps leading:xl text:dark-blue" Use what you know
+        p class="text:lightest-gray m:0" Spend more time building your app and less worrying about a new deployment strategy. If you can package it in a Docker image, it will run on Fly. It’s as easy as that.
+
+    figure class="grid col:auto-span md:col:2 sm:col:span gap:6 ai:center mb:8 ji:end sm:ji:start"
+      = img_tag "fast-cache.png", srcset: {"fast-cache@2x.png" => "2x"}, alt: "The Fly balloon mascot releasing apps into the wild", class: "w:14"
+      figcaption class="max-w:14 sm:max-w:15"
+        h2 class="flex flex:col text:6x"
+          | Wicked fast cache
+          small class="order:-1 text:xs text:smallcaps leading:xl text:dark-blue" Ludicrous mode
+        p class="text:lightest-gray m:0" Zero config, Redis protocol compatible caching. Use it to cache view partials, user specific data, or even full HTML responses. Keep it all in sync with global Redis command propagation.
+    = slant "var(--lightest-silver)"
+
+  section class="relative pw:18-3 py:8 text:xl bg:lightest-silver"
+    header class="grid ai:center min-md:col:2 gap-x:5 mb:5"
+      h2 class="text:8x min-sm:max-w:14 min-md:m:0" Our awesome community partners
+      p class="text:lightest-gray m:0 max-w:15" Open source is critical to building and shipping on the web, and we support our community by sponsoring the projects that keep us going.
+    
+    ul class="relative list:reset grid min-md:col:2 shadow:lg m:0 text:sm r:lg"
+      li class="bg:darkest-gray text:white px:5 py:4 min-md:rl:lg md:rt:lg"
+        = partial "shared/icons/crystal", locals: { width: "auto", height: "42px", classname: "mb:2 mt:6p" }
+        p class="mb:3" Crystal is a general-purpose, open-source, object-oriented programming language. It is actively developed by more than 300 contributors, and promises to be as fast as C, yet as slick as Ruby.
+        a class="button bg:clear b b:silver" href="https://crystal-lang.org/" target="_blank" rel="nofollow noopener" Learn more&nbsp;&nbsp;&rarr;
+      li class="bg:white px:5 py:4 m:0 min-md:rr:lg md:rb:lg"
+        = partial "shared/icons/lets-encrypt", locals: { width: "auto", height: "48px", classname: "mb:2" }
+        p class="mb:3" Let’s Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. It provides people with the digital certificates they need in order to enable HTTPS for websites.
+        a class="button button:outline" href="https://letsencrypt.org/" target="_blank" rel="nofollow noopener" Learn more&nbsp;&nbsp;&rarr;
+
+  = partial "shared/cta"
+
+<body>
+  ---
+class: "landing index"
+clear_header: true
+white_footer: true
+---
+
+article
+  header class="relative bg:violet-x-gradient pw:18-3 py:10 sm:pt:8 sm:pb:9 flex ai:center jc:between text:white text:shadow:lg md:flex:col md:jc:center"
+    = img_tag "sky-cover.png", srcset: {"sky-cover@2x.png" => "2x"}, alt: "", class: "absolute pin w:full h:full fit:cover opacity:50 move:z"
+    section class="relative pr:5 md:pr:0 py:5 max-w:15 md:max-w:16 md:text:center"
+      h1 class="text:11x md:text:10x leading:xs max-w:15 md:max-w md:mx" Deploy app servers close to your users
+      p class="text:xl mb:3 text:lightest-blue max-w:15 mx" Deploy the world’s fastest applications, delight your users, and only pay for what you use. Sounds good? Learn more about hosting your <a class="text:semibold text:green active:text:dark-green" href="/docs/getting-started/golang/">Golang</a>, <a class="text:semibold text:green active:text:dark-green" href="/docs/speedrun/">Docker</a>, or <a class="text:semibold text:green active:text:dark-green" href="/docs/getting-started/node/">Node.js</a> application.
+      a class="button:xl button:turquoise-gradient mb:1 mr:6p" href="/docs/hands-on/start/" Get started&nbsp;&nbsp;&rarr;
+    = img_tag "global-app-hosting.png", srcset: {"global-app-hosting@2x.png" => "2x"}, alt: "The Fly balloon mascot releasing apps into the wild", class: "relative max-w:13 mx md:hide:all"
+    = slant "var(--lightest-silver)"
+    
+  section class="relative pw:18-3 py:8 mx text:lg bg:white-y-gradient"
+
+    figure class="grid col:auto-span md:col:2 sm:col:span gap:6 ai:center mb:8 ji:end sm:ji:start"
+      = img_tag "networking.png", srcset: {"networking@2x.png" => "2x"}, alt: "The Fly balloon mascot releasing apps into the wild", class: "w:14"
+      figcaption class="max-w:14 sm:max-w:15"
+        h2 class="flex flex:col text:6x"
+          | Powerful networking
+          small class="order:-1 text:xs text:smallcaps leading:xl text:dark-blue" Route with ease
+        p class="text:lightest-gray m:0" Go beyond HTTP and ship any kind of network service. Have a spiffy gRPC backend? No problem. Want to do custom TLS? Also cool.
+  
+    figure class="grid col:auto-span md:col:2 sm:col:span gap:6 ai:center mb:8 ji:end sm:ji:start"
+      = img_tag "deployment.png", srcset: {"deployment@2x.png" => "2x"}, alt: "The Fly balloon mascot releasing apps into the wild", class: "ml md:m:0 min-sm:order:1 w:14"
+      figcaption class="max-w:14 sm:max-w:15"
+        h2 class="flex flex:col text:6x" 
+          | Deploy all runtimes
+          small class="order:-1 text:xs text:smallcaps leading:xl text:dark-blue" Use what you know
+        p class="text:lightest-gray m:0" Spend more time building your app and less worrying about a new deployment strategy. If you can package it in a Docker image, it will run on Fly. It’s as easy as that.
+
+    figure class="grid col:auto-span md:col:2 sm:col:span gap:6 ai:center mb:8 ji:end sm:ji:start"
+      = img_tag "fast-cache.png", srcset: {"fast-cache@2x.png" => "2x"}, alt: "The Fly balloon mascot releasing apps into the wild", class: "w:14"
+      figcaption class="max-w:14 sm:max-w:15"
+        h2 class="flex flex:col text:6x"
+          | Wicked fast cache
+          small class="order:-1 text:xs text:smallcaps leading:xl text:dark-blue" Ludicrous mode
+        p class="text:lightest-gray m:0" Zero config, Redis protocol compatible caching. Use it to cache view partials, user specific data, or even full HTML responses. Keep it all in sync with global Redis command propagation.
+    = slant "var(--lightest-silver)"
+
+  section class="relative pw:18-3 py:8 text:xl bg:lightest-silver"
+    header class="grid ai:center min-md:col:2 gap-x:5 mb:5"
+      h2 class="text:8x min-sm:max-w:14 min-md:m:0" Our awesome community partners
+      p class="text:lightest-gray m:0 max-w:15" Open source is critical to building and shipping on the web, and we support our community by sponsoring the projects that keep us going.
+    
+    ul class="relative list:reset grid min-md:col:2 shadow:lg m:0 text:sm r:lg"
+      li class="bg:darkest-gray text:white px:5 py:4 min-md:rl:lg md:rt:lg"
+        = partial "shared/icons/crystal", locals: { width: "auto", height: "42px", classname: "mb:2 mt:6p" }
+        p class="mb:3" Crystal is a general-purpose, open-source, object-oriented programming language. It is actively developed by more than 300 contributors, and promises to be as fast as C, yet as slick as Ruby.
+        a class="button bg:clear b b:silver" href="https://crystal-lang.org/" target="_blank" rel="nofollow noopener" Learn more&nbsp;&nbsp;&rarr;
+      li class="bg:white px:5 py:4 m:0 min-md:rr:lg md:rb:lg"
+        = partial "shared/icons/lets-encrypt", locals: { width: "auto", height: "48px", classname: "mb:2" }
+        p class="mb:3" Let’s Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. It provides people with the digital certificates they need in order to enable HTTPS for websites.
+        a class="button button:outline" href="https://letsencrypt.org/" target="_blank" rel="nofollow noopener" Learn more&nbsp;&nbsp;&rarr;
+
+  = partial "shared/cta" -->
+
+</body>
+
+</html>

@@ -7,11 +7,7 @@ function className(classPrefix, key) {
     return classPrefix
   }
 
-  if (key.startsWith('-')) {
-    return `-${classPrefix}${key}`
-  }
-
-  return `${classPrefix}-${key}`
+  return `${classPrefix}\:${key}`
 }
 
 export default function createUtilityPlugin(themeKey, utilityVariations) {

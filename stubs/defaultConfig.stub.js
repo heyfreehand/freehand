@@ -315,7 +315,7 @@ module.exports = {
       'highlight:inner': '0 0 0 1px hsl(214, 100%, 68%) inset, 0 0 0 3px hsl(214, 100%, 80%) inset',
     },
     container: {},
-    paddedWidth: theme => ({
+    paddingWidth: theme => ({
       width: {
         ...pick(theme('spacing'), '12', '13', '14', '15', '16', '17', '18', '19', '20'),
       },
@@ -486,7 +486,7 @@ module.exports = {
       ...theme('spacing'),
       screen: '100vh',
     }),
-    inset: {
+    pin: {
       default: '0',
       off: 'auto',
     },
@@ -807,7 +807,7 @@ module.exports = {
       '12': '12deg',
     },
     transitionProperty: {
-      none: 'none',
+      off: 'none',
       all: 'all',
       default: 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
       colors: 'background-color, border-color, color, fill, stroke',
@@ -872,7 +872,7 @@ module.exports = {
     float: ['responsive'],
     clear: ['responsive'],
     height: ['responsive'],
-    inset: ['responsive'],
+    pin: ['responsive'],
     top: ['responsive'],
     right: ['responsive'],
     bottom: ['responsive'],
@@ -893,7 +893,7 @@ module.exports = {
     outline: ['responsive', 'focus'],
     overflow: ['responsive'],
     padding: ['responsive'],
-    paddedWidth: ['responsive'],
+    paddingWidth: ['responsive'],
     placeholderColor: ['responsive', 'focus'],
     pointerEvents: ['responsive'],
     position: ['responsive'],

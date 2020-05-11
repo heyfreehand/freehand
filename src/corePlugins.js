@@ -42,11 +42,11 @@ import outline from './plugins/outline'
 import overflow from './plugins/overflow'
 import overScroll from './plugins/overScroll'
 import padding from './plugins/padding'
-import paddedWidth from './plugins/paddedWidth'
+import paddingWidth from './plugins/paddingWidth'
 import placeholderColor from './plugins/placeholderColor'
 import pointerEvents from './plugins/pointerEvents'
 import position from './plugins/position'
-import inset from './plugins/inset'
+import pin from './plugins/pin'
 import top from './plugins/top'
 import right from './plugins/right'
 import bottom from './plugins/bottom'
@@ -148,11 +148,11 @@ export default function({ corePlugins: corePluginConfig }) {
     overflow,
     overScroll,
     padding,
-    paddedWidth,
+    paddingWidth,
     placeholderColor,
     pointerEvents,
     position,
-    inset,
+    pin,
     top,
     right,
     bottom,
