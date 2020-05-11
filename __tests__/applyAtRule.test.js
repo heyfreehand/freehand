@@ -19,9 +19,9 @@ function run(input, config = resolvedDefaultConfig, utilities = defaultUtilities
 }
 
 test("it copies a class's declarations into itself", () => {
-  const output = '.a { color: red; } .b { color: red; }'
+  const output = '.abc { color: red; } .def { color: red; }'
 
-  return run('.a { color: red; } .b { @apply .a; }').then(result => {
+  return run('.abc { color: red; } .def { @apply .abc; }').then(result => {
     expect(result.css).toEqual(output)
     expect(result.warnings().length).toBe(0)
   })
@@ -30,12 +30,12 @@ test("it copies a class's declarations into itself", () => {
 test('selectors with invalid characters do not need to be manually escaped', () => {
   const input = `
     .a\\:1\\/2 { color: red; }
-    .b { @apply .a:1/2; }
+    .def { @apply .abc:1/2; }
   `
 
   const expected = `
     .a\\:1\\/2 { color: red; }
-    .b { color: red; }
+    .def { color: red; }
   `
 
   return run(input).then(result => {
@@ -46,13 +46,13 @@ test('selectors with invalid characters do not need to be manually escaped', () 
 
 test('it removes important from applied classes by default', () => {
   const input = `
-    .a { color: red !important; }
-    .b { @apply .a; }
+    .abc { color: red !important; }
+    .def { @apply .abc; }
   `
 
   const expected = `
-    .a { color: red !important; }
-    .b { color: red; }
+    .abc { color: red !important; }
+    .def { color: red; }
   `
 
   return run(input).then(result => {
@@ -63,13 +63,13 @@ test('it removes important from applied classes by default', () => {
 
 test('applied rules can be made !important', () => {
   const input = `
-    .a { color: red; }
-    .b { @apply .a !important; }
+    .abc { color: red; }
+    .def { @apply .abc !important; }
   `
 
   const expected = `
-    .a { color: red; }
-    .b { color: red !important; }
+    .abc { color: red; }
+    .def { color: red !important; }
   `
 
   return run(input).then(result => {
@@ -80,19 +80,19 @@ test('applied rules can be made !important', () => {
 
 test('cssnext custom property sets are preserved', () => {
   const input = `
-    .a {
+    .abc {
       color: red;
     }
-    .b {
-      @apply .a --custom-property-set;
+    .def {
+      @apply .abc --custom-property-set;
     }
   `
 
   const expected = `
-    .a {
+    .abc {
       color: red;
     }
-    .b {
+    .def {
       color: red;
       @apply --custom-property-set;
     }
@@ -105,7 +105,7 @@ test('cssnext custom property sets are preserved', () => {
 })
 
 test('it fails if the class does not exist', () => {
-  return run('.b { @apply .a; }').catch(e => {
+  return run('.def { @apply .abc; }').catch(e => {
     expect(e).toMatchObject({ name: 'CssSyntaxError' })
   })
 })
@@ -113,11 +113,11 @@ test('it fails if the class does not exist', () => {
 test('applying classes that are defined in a media query is not supported', () => {
   const input = `
     @media (min-width: 300px) {
-      .a { color: blue; }
+      .abc { color: blue; }
     }
 
-    .b {
-      @apply .a;
+    .def {
+      @apply .abc;
     }
   `
   expect.assertions(1)
@@ -128,16 +128,16 @@ test('applying classes that are defined in a media query is not supported', () =
 
 test('applying classes that are ever used in a media query is not supported', () => {
   const input = `
-    .a {
+    .abc {
       color: red;
     }
 
     @media (min-width: 300px) {
-      .a { color: blue; }
+      .abc { color: blue; }
     }
 
-    .b {
-      @apply .a;
+    .def {
+      @apply .abc;
     }
   `
   expect.assertions(1)
@@ -152,8 +152,8 @@ test('it does not match classes that include pseudo-selectors', () => {
       color: red;
     }
 
-    .b {
-      @apply .a;
+    .def {
+      @apply .abc;
     }
   `
   expect.assertions(1)
@@ -164,15 +164,15 @@ test('it does not match classes that include pseudo-selectors', () => {
 
 test('it does not match classes that have multiple rules', () => {
   const input = `
-    .a {
+    .abc {
       color: red;
     }
 
-    .b {
-      @apply .a;
+    .def {
+      @apply .abc;
     }
 
-    .a {
+    .abc {
       color: blue;
     }
   `
@@ -184,7 +184,7 @@ test('it does not match classes that have multiple rules', () => {
 
 test('you can apply utility classes that do not actually exist as long as they would exist if utilities were being generated', () => {
   const input = `
-    .foo { @apply .mt-4; }
+    .foo { @apply .mt:4; }
   `
 
   const expected = `
@@ -199,7 +199,7 @@ test('you can apply utility classes that do not actually exist as long as they w
 
 test('you can apply utility classes without using the given prefix', () => {
   const input = `
-    .foo { @apply .tw-mt-4 .mb-4; }
+    .foo { @apply .tw-mt:4 .mb:4; }
   `
 
   const expected = `
@@ -221,7 +221,7 @@ test('you can apply utility classes without using the given prefix', () => {
 
 test('you can apply utility classes without using the given prefix when using a function for the prefix', () => {
   const input = `
-    .foo { @apply .tw-mt-4 .mb-4; }
+    .foo { @apply .tw-mt:4 .mb:4; }
   `
 
   const expected = `
@@ -245,7 +245,7 @@ test('you can apply utility classes without using the given prefix when using a 
 
 test('you can apply utility classes without specificity prefix even if important (selector) is used', () => {
   const input = `
-    .foo { @apply .mt-8 .mb-8; }
+    .foo { @apply .mt:8 .mb:8; }
   `
 
   const expected = `
@@ -267,7 +267,7 @@ test('you can apply utility classes without specificity prefix even if important
 
 test('you can apply utility classes without using the given prefix even if important (selector) is used', () => {
   const input = `
-    .foo { @apply .tw-mt-4 .mb-4; }
+    .foo { @apply .tw-mt:4 .mb:4; }
   `
 
   const expected = `

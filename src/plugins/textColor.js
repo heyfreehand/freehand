@@ -7,7 +7,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(flattenColorPalette(theme('textColor')), (value, modifier) => {
         return [
-          `.${e(`text\:${modifier}`)}`,
+          `.${e(`text:${modifier}`)}`,
           {
             color: value,
           },

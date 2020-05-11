@@ -1,7 +1,3 @@
-function pick(o, ...props) {
-  return Object.assign({}, ...props.map(prop => ({[prop]: o[prop]})));
-}
-
 module.exports = {
   prefix: '',
   important: false,
@@ -317,11 +313,11 @@ module.exports = {
     container: {},
     paddingWidth: theme => ({
       width: {
-        ...pick(theme('spacing'), '12', '13', '14', '15', '16', '17', '18', '19', '20'),
+        ...Object.assign({}, ...['12', '13', '14', '15', '16', '17', '18', '19', '20'].map(prop => ({[prop]: theme('spacing')[prop]}))),
       },
       padding: {
         default: '0',
-        ...pick(theme('spacing'), '1', '2', '3', '4', '5', '6'),
+        ...Object.assign({}, ...['1', '2', '3', '4', '5', '6'].map(prop => ({[prop]: theme('spacing')[prop]}))),
       }
     }),
     marginWidth: {},
@@ -340,7 +336,7 @@ module.exports = {
         '0  3px  3px hsla(228, 45%, 41%, 7.5%)',
         '0 10px 15px hsla(228, 45%, 41%, 7.5%)',
         '0  5px  7px hsla(228, 45%, 41%, 7.5%)',
-      ]
+      ],
     },
     fill: {
       off: 'none',

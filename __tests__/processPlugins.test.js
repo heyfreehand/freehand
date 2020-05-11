@@ -21,13 +21,13 @@ test('plugins can create utilities with object syntax', () => {
     [
       function({ addUtilities }) {
         addUtilities({
-          '.object-fill': {
+          '.object\\:fill': {
             'object-fit': 'fill',
           },
-          '.object-contain': {
+          '.object\\:contain': {
             'object-fit': 'contain',
           },
-          '.object-cover': {
+          '.object\\:cover': {
             'object-fit': 'cover',
           },
         })
@@ -39,13 +39,13 @@ test('plugins can create utilities with object syntax', () => {
   expect(components.length).toBe(0)
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .object-fill {
+      .object\\:fill {
         object-fit: fill
       }
-      .object-contain {
+      .object\\:contain {
         object-fit: contain
       }
-      .object-cover {
+      .object\\:cover {
         object-fit: cover
       }
     }
@@ -58,17 +58,17 @@ test('plugins can create utilities with arrays of objects', () => {
       function({ addUtilities }) {
         addUtilities([
           {
-            '.object-fill': {
+            '.object\\:fill': {
               'object-fit': 'fill',
             },
           },
           {
-            '.object-contain': {
+            '.object\\:contain': {
               'object-fit': 'contain',
             },
           },
           {
-            '.object-cover': {
+            '.object\\:cover': {
               'object-fit': 'cover',
             },
           },
@@ -81,13 +81,13 @@ test('plugins can create utilities with arrays of objects', () => {
   expect(components.length).toBe(0)
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .object-fill {
+      .object\\:fill {
         object-fit: fill
       }
-      .object-contain {
+      .object\\:contain {
         object-fit: contain
       }
-      .object-cover {
+      .object\\:cover {
         object-fit: cover
       }
     }
@@ -99,19 +99,19 @@ test('plugins can create utilities with raw PostCSS nodes', () => {
     [
       function({ addUtilities, postcss }) {
         addUtilities([
-          postcss.rule({ selector: '.object-fill' }).append([
+          postcss.rule({ selector: '.object\\:fill' }).append([
             postcss.decl({
               prop: 'object-fit',
               value: 'fill',
             }),
           ]),
-          postcss.rule({ selector: '.object-contain' }).append([
+          postcss.rule({ selector: '.object\\:contain' }).append([
             postcss.decl({
               prop: 'object-fit',
               value: 'contain',
             }),
           ]),
-          postcss.rule({ selector: '.object-cover' }).append([
+          postcss.rule({ selector: '.object\\:cover' }).append([
             postcss.decl({
               prop: 'object-fit',
               value: 'cover',
@@ -126,13 +126,13 @@ test('plugins can create utilities with raw PostCSS nodes', () => {
   expect(components.length).toBe(0)
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .object-fill {
+      .object\\:fill {
         object-fit: fill
       }
-      .object-contain {
+      .object\\:contain {
         object-fit: contain
       }
-      .object-cover {
+      .object\\:cover {
         object-fit: cover
       }
     }
@@ -145,17 +145,17 @@ test('plugins can create utilities with mixed object styles and PostCSS nodes', 
       function({ addUtilities, postcss }) {
         addUtilities([
           {
-            '.object-fill': {
+            '.object\\:fill': {
               objectFit: 'fill',
             },
           },
-          postcss.rule({ selector: '.object-contain' }).append([
+          postcss.rule({ selector: '.object\\:contain' }).append([
             postcss.decl({
               prop: 'object-fit',
               value: 'contain',
             }),
           ]),
-          postcss.rule({ selector: '.object-cover' }).append([
+          postcss.rule({ selector: '.object\\:cover' }).append([
             postcss.decl({
               prop: 'object-fit',
               value: 'cover',
@@ -170,13 +170,13 @@ test('plugins can create utilities with mixed object styles and PostCSS nodes', 
   expect(components.length).toBe(0)
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .object-fill {
+      .object\\:fill {
         object-fit: fill
       }
-      .object-contain {
+      .object\\:contain {
         object-fit: contain
       }
-      .object-cover {
+      .object\\:cover {
         object-fit: cover
       }
     }
@@ -189,13 +189,13 @@ test('plugins can create utilities with variants', () => {
       function({ addUtilities }) {
         addUtilities(
           {
-            '.object-fill': {
+            '.object\\:fill': {
               'object-fit': 'fill',
             },
-            '.object-contain': {
+            '.object\\:contain': {
               'object-fit': 'contain',
             },
-            '.object-cover': {
+            '.object\\:cover': {
               'object-fit': 'cover',
             },
           },
@@ -209,13 +209,13 @@ test('plugins can create utilities with variants', () => {
   expect(components.length).toBe(0)
   expect(css(utilities)).toMatchCss(`
     @variants responsive, hover, group-hover, focus {
-      .object-fill {
+      .object\\:fill {
         object-fit: fill
       }
-      .object-contain {
+      .object\\:contain {
         object-fit: contain
       }
-      .object-cover {
+      .object\\:cover {
         object-fit: cover
       }
     }
@@ -227,13 +227,13 @@ test('plugins can create components with object syntax', () => {
     [
       function({ addComponents }) {
         addComponents({
-          '.btn-blue': {
+          '.btn\\:blue': {
             backgroundColor: 'blue',
             color: 'white',
             padding: '.5rem 1rem',
             borderRadius: '.25rem',
           },
-          '.btn-blue:hover': {
+          '.btn\\:blue:hover': {
             backgroundColor: 'darkblue',
           },
         })
@@ -244,13 +244,13 @@ test('plugins can create components with object syntax', () => {
 
   expect(utilities.length).toBe(0)
   expect(css(components)).toMatchCss(`
-    .btn-blue {
+    .btn\\:blue {
       background-color: blue;
       color: white;
       padding: .5rem 1rem;
       border-radius: .25rem
     }
-    .btn-blue:hover {
+    .btn\\:blue:hover {
       background-color: darkblue
     }
     `)
@@ -321,7 +321,7 @@ test('plugins can create components with raw PostCSS nodes', () => {
     [
       function({ addComponents, postcss }) {
         addComponents([
-          postcss.rule({ selector: '.btn-blue' }).append([
+          postcss.rule({ selector: '.btn\\:blue' }).append([
             postcss.decl({
               prop: 'background-color',
               value: 'blue',
@@ -339,7 +339,7 @@ test('plugins can create components with raw PostCSS nodes', () => {
               value: '.25rem',
             }),
           ]),
-          postcss.rule({ selector: '.btn-blue:hover' }).append([
+          postcss.rule({ selector: '.btn\\:blue:hover' }).append([
             postcss.decl({
               prop: 'background-color',
               value: 'darkblue',
@@ -353,13 +353,13 @@ test('plugins can create components with raw PostCSS nodes', () => {
 
   expect(utilities.length).toBe(0)
   expect(css(components)).toMatchCss(`
-    .btn-blue {
+    .btn\\:blue {
       background-color: blue;
       color: white;
       padding: .5rem 1rem;
       border-radius: .25rem
     }
-    .btn-blue:hover {
+    .btn\\:blue:hover {
       background-color: darkblue
     }
     `)
@@ -370,7 +370,7 @@ test('plugins can create components with mixed object styles and raw PostCSS nod
     [
       function({ addComponents, postcss }) {
         addComponents([
-          postcss.rule({ selector: '.btn-blue' }).append([
+          postcss.rule({ selector: '.btn\\:blue' }).append([
             postcss.decl({
               prop: 'background-color',
               value: 'blue',
@@ -389,7 +389,7 @@ test('plugins can create components with mixed object styles and raw PostCSS nod
             }),
           ]),
           {
-            '.btn-blue:hover': {
+            '.btn\\:blue:hover': {
               backgroundColor: 'darkblue',
             },
           },
@@ -401,13 +401,13 @@ test('plugins can create components with mixed object styles and raw PostCSS nod
 
   expect(utilities.length).toBe(0)
   expect(css(components)).toMatchCss(`
-    .btn-blue {
+    .btn\\:blue {
       background-color: blue;
       color: white;
       padding: .5rem 1rem;
       border-radius: .25rem
     }
-    .btn-blue:hover {
+    .btn\\:blue:hover {
       background-color: darkblue
     }
     `)
@@ -524,7 +524,7 @@ test('plugins can create nested rules', () => {
     [
       function({ addComponents }) {
         addComponents({
-          '.btn-blue': {
+          '.btn\\:blue': {
             backgroundColor: 'blue',
             color: 'white',
             padding: '.5rem 1rem',
@@ -552,24 +552,24 @@ test('plugins can create nested rules', () => {
 
   expect(utilities.length).toBe(0)
   expect(css(components)).toMatchCss(`
-    .btn-blue {
+    .btn\\:blue {
       background-color: blue;
       color: white;
       padding: .5rem 1rem;
       border-radius: .25rem;
     }
-    .btn-blue:hover {
+    .btn\\:blue:hover {
       background-color: darkblue;
     }
     @media (min-width: 500px) {
-      .btn-blue:hover {
+      .btn\\:blue:hover {
         background-color: orange;
       }
     }
-    .btn-blue > a {
+    .btn\\:blue > a {
       color: red;
     }
-    h1 .btn-blue {
+    h1 .btn\\:blue {
       color: purple;
     }
     `)
@@ -665,13 +665,13 @@ test('plugins can access the variants config directly', () => {
       function({ addUtilities, variants }) {
         addUtilities(
           {
-            '.object-fill': {
+            '.object\\:fill': {
               'object-fit': 'fill',
             },
-            '.object-contain': {
+            '.object\\:contain': {
               'object-fit': 'contain',
             },
-            '.object-cover': {
+            '.object\\:cover': {
               'object-fit': 'cover',
             },
           },
@@ -689,13 +689,13 @@ test('plugins can access the variants config directly', () => {
   expect(components.length).toBe(0)
   expect(css(utilities)).toMatchCss(`
     @variants responsive, focus, hover {
-      .object-fill {
+      .object\\:fill {
         object-fit: fill
       }
-      .object-contain {
+      .object\\:contain {
         object-fit: contain
       }
-      .object-cover {
+      .object\\:cover {
         object-fit: cover
       }
     }
@@ -708,7 +708,7 @@ test('plugins apply all global variants when variants are configured globally', 
       function({ addUtilities, variants }) {
         addUtilities(
           {
-            '.object-fill': {
+            '.object\\:fill': {
               'object-fit': 'fill',
             },
           },
@@ -732,7 +732,7 @@ test('plugins apply all global variants when variants are configured globally', 
   expect(components.length).toBe(0)
   expect(css(utilities)).toMatchCss(`
     @variants responsive, focus, hover {
-      .object-fill {
+      .object\\:fill {
         object-fit: fill
       }
     }
@@ -959,7 +959,7 @@ test("component declarations respect the 'prefix' option by default", () => {
     [
       function({ addComponents }) {
         addComponents({
-          '.btn-blue': {
+          '.btn\\:blue': {
             backgroundColor: 'blue',
           },
         })
@@ -987,7 +987,7 @@ test('all selectors in a rule are prefixed', () => {
           },
         })
         addComponents({
-          '.btn-blue, .btn-red': {
+          '.btn\\:blue, .btn-red': {
             padding: '10px',
           },
         })
@@ -1019,7 +1019,7 @@ test("component declarations can optionally ignore 'prefix' option", () => {
       function({ addComponents }) {
         addComponents(
           {
-            '.btn-blue': {
+            '.btn\\:blue': {
               backgroundColor: 'blue',
             },
           },
@@ -1033,7 +1033,7 @@ test("component declarations can optionally ignore 'prefix' option", () => {
   )
 
   expect(css(components)).toMatchCss(`
-    .btn-blue {
+    .btn\\:blue {
       background-color: blue
     }
     `)
@@ -1044,7 +1044,7 @@ test("component declarations are not affected by the 'important' option", () => 
     [
       function({ addComponents }) {
         addComponents({
-          '.btn-blue': {
+          '.btn\\:blue': {
             backgroundColor: 'blue',
           },
         })
@@ -1056,7 +1056,7 @@ test("component declarations are not affected by the 'important' option", () => 
   )
 
   expect(css(components)).toMatchCss(`
-    .btn-blue {
+    .btn\\:blue {
       background-color: blue
     }
     `)
@@ -1068,7 +1068,7 @@ test("plugins can apply the user's chosen prefix to components manually", () => 
       function({ addComponents, prefix }) {
         addComponents(
           {
-            [prefix('.btn-blue')]: {
+            [prefix('.btn\\:blue')]: {
               backgroundColor: 'blue',
             },
           },
@@ -1189,7 +1189,7 @@ test('prefix will prefix all classes in a selector', () => {
       function({ addComponents, prefix }) {
         addComponents(
           {
-            [prefix('.btn-blue .w-1\\/4 > h1.text-xl + a .bar')]: {
+            [prefix('.btn\\:blue .w-1\\/4 > h1.text-xl + a .bar')]: {
               backgroundColor: 'blue',
             },
           },
@@ -1215,13 +1215,13 @@ test('plugins can be provided as an object with a handler function', () => {
       {
         handler({ addUtilities }) {
           addUtilities({
-            '.object-fill': {
+            '.object\\:fill': {
               'object-fit': 'fill',
             },
-            '.object-contain': {
+            '.object\\:contain': {
               'object-fit': 'contain',
             },
-            '.object-cover': {
+            '.object\\:cover': {
               'object-fit': 'cover',
             },
           })
@@ -1234,13 +1234,13 @@ test('plugins can be provided as an object with a handler function', () => {
   expect(components.length).toBe(0)
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .object-fill {
+      .object\\:fill {
         object-fit: fill
       }
-      .object-contain {
+      .object\\:contain {
         object-fit: contain
       }
-      .object-cover {
+      .object\\:cover {
         object-fit: cover
       }
     }
@@ -1258,13 +1258,13 @@ test('plugins can provide a config but no handler', () => {
       {
         handler({ addUtilities }) {
           addUtilities({
-            '.object-fill': {
+            '.object\\:fill': {
               'object-fit': 'fill',
             },
-            '.object-contain': {
+            '.object\\:contain': {
               'object-fit': 'contain',
             },
-            '.object-cover': {
+            '.object\\:cover': {
               'object-fit': 'cover',
             },
           })
@@ -1277,13 +1277,13 @@ test('plugins can provide a config but no handler', () => {
   expect(components.length).toBe(0)
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .object-fill {
+      .object\\:fill {
         object-fit: fill
       }
-      .object-contain {
+      .object\\:contain {
         object-fit: contain
       }
-      .object-cover {
+      .object\\:cover {
         object-fit: cover
       }
     }
