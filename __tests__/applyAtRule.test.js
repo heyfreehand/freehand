@@ -29,12 +29,12 @@ test("it copies a class's declarations into itself", () => {
 
 test('selectors with invalid characters do not need to be manually escaped', () => {
   const input = `
-    .a\\:1\\/2 { color: red; }
+    .abc\\:1\\/2 { color: red; }
     .def { @apply .abc:1/2; }
   `
 
   const expected = `
-    .a\\:1\\/2 { color: red; }
+    .abc\\:1\\/2 { color: red; }
     .def { color: red; }
   `
 
@@ -188,7 +188,7 @@ test('you can apply utility classes that do not actually exist as long as they w
   `
 
   const expected = `
-    .foo { margin-top: 1rem; }
+    .foo { margin-top: 34px; }
   `
 
   return run(input).then(result => {
@@ -203,7 +203,7 @@ test('you can apply utility classes without using the given prefix', () => {
   `
 
   const expected = `
-    .foo { margin-top: 1rem; margin-bottom: 1rem; }
+    .foo { margin-top: 34px; margin-bottom: 34px; }
   `
 
   const config = resolveConfig([
@@ -225,7 +225,7 @@ test('you can apply utility classes without using the given prefix when using a 
   `
 
   const expected = `
-    .foo { margin-top: 1rem; margin-bottom: 1rem; }
+    .foo { margin-top: 34px; margin-bottom: 34px; }
   `
 
   const config = resolveConfig([
@@ -249,7 +249,7 @@ test('you can apply utility classes without specificity prefix even if important
   `
 
   const expected = `
-    .foo { margin-top: 2rem; margin-bottom: 2rem; }
+    .foo { margin-top: 90px; margin-bottom: 90px; }
   `
 
   const config = resolveConfig([
@@ -271,7 +271,7 @@ test('you can apply utility classes without using the given prefix even if impor
   `
 
   const expected = `
-    .foo { margin-top: 1rem; margin-bottom: 1rem; }
+    .foo { margin-top: 34px; margin-bottom: 34px; }
   `
 
   const config = resolveConfig([

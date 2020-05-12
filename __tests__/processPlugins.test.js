@@ -265,7 +265,7 @@ test('plugins can add base styles with object syntax', () => {
             maxWidth: '100%',
           },
           button: {
-            textFamily: 'inherit',
+            fontFamily: 'inherit',
           },
         })
       },
@@ -313,7 +313,7 @@ test('plugins can add base styles with raw PostCSS nodes', () => {
     button {
       font-family: inherit
     }
-    `)
+  `)
 })
 
 test('plugins can create components with raw PostCSS nodes', () => {
@@ -716,7 +716,7 @@ test('plugins apply all global variants when variants are configured globally', 
         )
         addUtilities(
           {
-            '.rotate-90deg': {
+            '.rotate\\:90deg': {
               transform: 'rotate(90deg)',
             },
           },
@@ -737,7 +737,7 @@ test('plugins apply all global variants when variants are configured globally', 
       }
     }
     @variants responsive, focus, hover {
-      .rotate-90deg {
+      .rotate\\:90deg {
         transform: rotate(90deg)
       }
     }
@@ -858,7 +858,7 @@ test('plugins respect prefix and important options by default when adding utilit
     [
       function({ addUtilities }) {
         addUtilities({
-          '.rotate-90': {
+          '.rotate\\:90': {
             transform: 'rotate(90deg)',
           },
         })
@@ -872,7 +872,7 @@ test('plugins respect prefix and important options by default when adding utilit
 
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .tw-rotate-90 {
+      .tw-rotate\\:90 {
         transform: rotate(90deg) !important
       }
     }
@@ -884,7 +884,7 @@ test('when important is a selector it is used to scope utilities instead of addi
     [
       function({ addUtilities }) {
         addUtilities({
-          '.rotate-90': {
+          '.rotate\\:90': {
             transform: 'rotate(90deg)',
           },
         })
@@ -897,7 +897,7 @@ test('when important is a selector it is used to scope utilities instead of addi
 
   expect(css(utilities)).toMatchCss(`
     @variants {
-      #app .rotate-90 {
+      #app .rotate\\:90 {
         transform: rotate(90deg)
       }
     }
@@ -909,7 +909,7 @@ test('when important is a selector it scopes all selectors in a rule, even thoug
     [
       function({ addUtilities }) {
         addUtilities({
-          '.rotate-90, .rotate-1\\/4': {
+          '.rotate\\:90, .rotate-1\\/4': {
             transform: 'rotate(90deg)',
           },
         })
@@ -922,7 +922,7 @@ test('when important is a selector it scopes all selectors in a rule, even thoug
 
   expect(css(utilities)).toMatchCss(`
     @variants {
-      #app .rotate-90, #app .rotate-1\\/4 {
+      #app .rotate\\:90, #app .rotate-1\\/4 {
         transform: rotate(90deg)
       }
     }
@@ -934,7 +934,7 @@ test('important utilities are not made double important when important option is
     [
       function({ addUtilities }) {
         addUtilities({
-          '.rotate-90': {
+          '.rotate\\:90': {
             transform: 'rotate(90deg) !important',
           },
         })
@@ -947,7 +947,7 @@ test('important utilities are not made double important when important option is
 
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .rotate-90 {
+      .rotate\\:90 {
         transform: rotate(90deg) !important
       }
     }
@@ -971,7 +971,7 @@ test("component declarations respect the 'prefix' option by default", () => {
   )
 
   expect(css(components)).toMatchCss(`
-    .tw-btn-blue {
+    .tw-btn\\:blue {
       background-color: blue
     }
     `)
@@ -982,12 +982,12 @@ test('all selectors in a rule are prefixed', () => {
     [
       function({ addUtilities, addComponents }) {
         addUtilities({
-          '.rotate-90, .rotate-1\\/4': {
+          '.rotate\\:90, .rotate-1\\/4': {
             transform: 'rotate(90deg)',
           },
         })
         addComponents({
-          '.btn\\:blue, .btn-red': {
+          '.btn\\:blue, .btn\\:red': {
             padding: '10px',
           },
         })
@@ -1000,14 +1000,14 @@ test('all selectors in a rule are prefixed', () => {
 
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .tw-rotate-90, .tw-rotate-1\\/4 {
+      .tw-rotate\\:90, .tw-rotate-1\\/4 {
         transform: rotate(90deg)
       }
     }
     `)
 
   expect(css(components)).toMatchCss(`
-    .tw-btn-blue, .tw-btn-red {
+    .tw-btn\\:blue, .tw-btn\\:red {
       padding: 10px
     }
     `)
@@ -1082,7 +1082,7 @@ test("plugins can apply the user's chosen prefix to components manually", () => 
   )
 
   expect(css(components)).toMatchCss(`
-    .tw-btn-blue {
+    .tw-btn\\:blue {
       background-color: blue
     }
     `)
@@ -1094,7 +1094,7 @@ test('prefix can optionally be ignored for utilities', () => {
       function({ addUtilities }) {
         addUtilities(
           {
-            '.rotate-90': {
+            '.rotate\\:90': {
               transform: 'rotate(90deg)',
             },
           },
@@ -1112,7 +1112,7 @@ test('prefix can optionally be ignored for utilities', () => {
 
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .rotate-90 {
+      .rotate\\:90 {
         transform: rotate(90deg) !important
       }
     }
@@ -1125,7 +1125,7 @@ test('important can optionally be ignored for utilities', () => {
       function({ addUtilities }) {
         addUtilities(
           {
-            '.rotate-90': {
+            '.rotate\\:90': {
               transform: 'rotate(90deg)',
             },
           },
@@ -1143,7 +1143,7 @@ test('important can optionally be ignored for utilities', () => {
 
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .tw-rotate-90 {
+      .tw-rotate\\:90 {
         transform: rotate(90deg)
       }
     }
@@ -1156,7 +1156,7 @@ test('variants can still be specified when ignoring prefix and important options
       function({ addUtilities }) {
         addUtilities(
           {
-            '.rotate-90': {
+            '.rotate\\:90': {
               transform: 'rotate(90deg)',
             },
           },
@@ -1176,7 +1176,7 @@ test('variants can still be specified when ignoring prefix and important options
 
   expect(css(utilities)).toMatchCss(`
     @variants responsive, hover, focus {
-      .rotate-90 {
+      .rotate\\:90 {
         transform: rotate(90deg)
       }
     }
@@ -1203,7 +1203,7 @@ test('prefix will prefix all classes in a selector', () => {
   )
 
   expect(css(components)).toMatchCss(`
-    .tw-btn-blue .tw-w-1\\/4 > h1.tw-text-xl + a .tw-bar {
+    .tw-btn\\:blue .tw-w-1\\/4 > h1.tw-text-xl + a .tw-bar {
       background-color: blue
     }
     `)
