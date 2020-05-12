@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('minHeight'), (value, modifier) => {
         return [
-          `.${e(`min-h\:${modifier}`)}`,
+          `.${e(`min-h:${modifier}`)}`,
           {
             'min-height': value,
           },

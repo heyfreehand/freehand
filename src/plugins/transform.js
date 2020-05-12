@@ -1,5 +1,5 @@
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
         '.transform': {
@@ -20,7 +20,7 @@ export default function() {
             'scaleY(var(--transform-scale-y))',
           ].join(' '),
         },
-        '.transform-none': { transform: 'none' },
+        [`.${e('transform:off')}`]: { transform: 'none' },
       },
       variants('transform')
     )

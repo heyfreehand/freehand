@@ -17,7 +17,7 @@ export default function() {
 
     const utilities = _.flatMap(generators, generator => {
       return _.flatMap(theme('borderSize'), (value, modifier) => {
-        return generator(value, modifier === 'default' ? '' : `\:${modifier}`)
+        return generator(value, modifier === 'default' ? '' : `:${modifier}`)
       })
     })
 

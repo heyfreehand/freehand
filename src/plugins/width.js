@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('width'), (value, modifier) => {
         return [
-          `.${e(`w\:${modifier}`)}`,
+          `.${e(`w:${modifier}`)}`,
           {
             width: value,
           },

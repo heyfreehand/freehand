@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('textSize'), (value, modifier) => {
         return [
-          `.${e(`text\:${modifier}`)}`,
+          `.${e(`text:${modifier}`)}`,
           {
             'font-size': value,
           },

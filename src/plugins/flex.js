@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('flex'), (value, modifier) => {
         return [
-          `.${e(`flex\:${modifier}`)}`,
+          `.${e(`flex:${modifier}`)}`,
           {
             flex: value,
           },

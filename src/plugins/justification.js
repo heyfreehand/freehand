@@ -1,48 +1,48 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.ji\\:stretch': {
+        [`.${e('ji:stretch')}`]: {
           'justify-items': 'stretch',
         },
-        '.ji\\:center': {
+        [`.${e('ji:center')}`]: {
           'justify-items': 'center',
         },
-        '.ji\\:start': {
+        [`.${e('ji:start')}`]: {
           'justify-items': 'start',
         },
-        '.ji\\:end': {
+        [`.${e('ji:end')}`]: {
           'justify-items': 'end',
         },
-        '.jc\\:start': {
+        [`.${e('jc:start')}`]: {
           'justify-content': 'flex-start',
         },
-        '.jc\\:center': {
+        [`.${e('jc:center')}`]: {
           'justify-content': 'center',
         },
-        '.jc\\:end': {
+        [`.${e('jc:end')}`]: {
           'justify-content': 'flex-end',
         },
-        '.jc\\:between': {
+        [`.${e('jc:between')}`]: {
           'justify-content': 'space-between',
         },
-        '.jc\\:around': {
+        [`.${e('jc:around')}`]: {
           'justify-content': 'space-around',
         },
-        '.jc\\:evenly': {
+        [`.${e('jc:evenly')}`]: {
           'justify-content': 'space-evenly',
         },
-        '.js\\:stretch': {
+        [`.${e('js:stretch')}`]: {
           'justify-self': 'stretch',
         },
-        '.js\\:center': {
+        [`.${e('js:center')}`]: {
           'justify-self': 'center',
         },
-        '.js\\:start': {
+        [`.${e('js:start')}`]: {
           'justify-self': 'start',
         },
-        '.js\\:end': {
+        [`.${e('js:end')}`]: {
           'justify-self': 'end',
         },
       },

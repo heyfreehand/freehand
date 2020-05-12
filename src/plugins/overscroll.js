@@ -1,11 +1,11 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.overscroll\\:on': { 'overscroll-behavior': 'auto' },
-        '.overscroll\\:off': { 'overscroll-behavior': 'none' },
-        '.overscroll\\:contain': { 'overscroll-behavior': 'contain' },
+        [`.${e('overscroll:on')}`]: { 'overscroll-behavior': 'auto' },
+        [`.${e('overscroll:off')}`]: { 'overscroll-behavior': 'none' },
+        [`.${e('overscroll:contain')}`]: { 'overscroll-behavior': 'contain' },
       },
       variants('overscroll')
     )

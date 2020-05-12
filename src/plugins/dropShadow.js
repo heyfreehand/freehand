@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('dropShadow'), (value, modifier) => {
         const className =
-          modifier === 'default' ? 'drop-shadow' : `drop-shadow\\:${modifier}`
+          modifier === 'default' ? 'drop-shadow' : e(`drop-shadow:${modifier}`)
         return [
           `.${className}`,
           {

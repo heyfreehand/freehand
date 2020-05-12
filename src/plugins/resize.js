@@ -1,12 +1,12 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.resize\\:off': { resize: 'none' },
-        '.resize': { resize: 'both' },
-        '.resize\\:y': { resize: 'vertical' },
-        '.resize\\:x': { resize: 'horizontal' },
+        [`.${e('resize:off')}`]: { resize: 'none' },
+        [`.${e('resize')}`]: { resize: 'both' },
+        [`.${e('resize:y')}`]: { resize: 'vertical' },
+        [`.${e('resize:x')}`]: { resize: 'horizontal' },
       },
       variants('resize')
     )

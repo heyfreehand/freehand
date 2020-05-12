@@ -1,12 +1,12 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.float\\:right': { float: 'right' },
-        '.float\\:left': { float: 'left' },
-        '.float\\:off': { float: 'none' },
-        '.clearfix:after': {
+        [`.${e('float:right')}`]: { float: 'right' },
+        [`.${e('float:left')}`]: { float: 'left' },
+        [`.${e('float:off')}`]: { float: 'none' },
+        [`.${e('clearfix:after')}`]: {
           content: '""',
           display: 'table',
           clear: 'both',

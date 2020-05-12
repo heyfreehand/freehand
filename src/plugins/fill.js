@@ -7,7 +7,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(flattenColorPalette(theme('fill')), (value, modifier) => {
         return [
-          `.${e(`fill\:${modifier}`)}`,
+          `.${e(`fill:${modifier}`)}`,
           {
             fill: value,
           },

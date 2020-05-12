@@ -1,12 +1,12 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.select\\:off': { 'user-select': 'none' },
-        '.select\\:text': { 'user-select': 'text' },
-        '.select\\:all': { 'user-select': 'all' },
-        '.select\\:auto': { 'user-select': 'auto' },
+        [`.${e('select:off')}`]: { 'user-select': 'none' },
+        [`.${e('select:text')}`]: { 'user-select': 'text' },
+        [`.${e('select:all')}`]: { 'user-select': 'all' },
+        [`.${e('select:auto')}`]: { 'user-select': 'auto' },
       },
       variants('select')
     )

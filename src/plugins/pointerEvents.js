@@ -1,10 +1,10 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.pointer\\:off': { 'pointer-events': 'none' },
-        '.pointer\\:on': { 'pointer-events': 'auto' },
+        [`.${e('pointer:off')}`]: { 'pointer-events': 'none' },
+        [`.${e('pointer:on')}`]: { 'pointer-events': 'auto' },
       },
       variants('pointerEvents')
     )

@@ -5,14 +5,14 @@ import flattenColorPalette from '../util/flattenColorPalette'
 export default function() {
   return function({ addUtilities, e, theme, variants }) {
     const staticUtilities = {
-      '.text\\:underline': { 'text-decoration': 'underline' },
-      '.text\\:strike': { 'text-decoration': 'line-through' },
-      '.text\\:line\\:off': { 'text-decoration': 'none' },
+      [`.${e('text:underline')}`]: { 'text-decoration': 'underline' },
+      [`.${e('text:strike')}`]: { 'text-decoration': 'line-through' },
+      [`.${e('text:line:off')}`]: { 'text-decoration': 'none' },
     }
     const dynamicUtilities = _.fromPairs(
       _.map(flattenColorPalette(theme('textColor')), (value, modifier) => {
         return [
-          `.${e(`text\:line\:${modifier}`)}`,
+          `.${e(`text:line:${modifier}`)}`,
           {
             'text-decoration-color': value,
           },

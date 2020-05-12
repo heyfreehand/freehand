@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(flattenColorPalette(theme('stroke')), (value, modifier) => {
         return [
-          `.${e(`stroke\:${modifier}`)}`,
+          `.${e(`stroke:${modifier}`)}`,
           {
             stroke: value,
           },

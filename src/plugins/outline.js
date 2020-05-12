@@ -1,9 +1,9 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.outline\\:off': { outline: '0' },
+        [`.${e('outline:off')}`]: { outline: '0' },
       },
       variants('outline')
     )

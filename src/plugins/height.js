@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('height'), (value, modifier) => {
         return [
-          `.${e(`h\:${modifier}`)}`,
+          `.${e(`h:${modifier}`)}`,
           {
             height: value,
           },

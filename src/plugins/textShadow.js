@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('textShadow'), (value, modifier) => {
         return [
-          `.${e(`text\:shadow\:${modifier}`)}`,
+          `.${e(`text:shadow:${modifier}`)}`,
           {
             'text-shadow': value,
           },

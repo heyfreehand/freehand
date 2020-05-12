@@ -1,10 +1,10 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.box\\:border': { 'box-sizing': 'border-box' },
-        '.box\\:content': { 'box-sizing': 'content-box' },
+        [`.${e('box:border')}`]: { 'box-sizing': 'border-box' },
+        [`.${e('box:content')}`]: { 'box-sizing': 'content-box' },
       },
       variants('boxSizing')
     )

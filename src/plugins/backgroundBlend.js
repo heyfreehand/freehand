@@ -1,24 +1,24 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.bg\\:blend\\:screen': { 'background-blend-mode': 'screen' },
-        '.bg\\:blend\\:overlay': { 'background-blend-mode': 'overlay' },
-        '.bg\\:blend\\:darken': { 'background-blend-mode': 'darken' },
-        '.bg\\:blend\\:lighten': { 'background-blend-mode': 'lighten' },
-        '.bg\\:blend\\:color-dodge': { 'background-blend-mode': 'color-dodge' },
-        '.bg\\:blend\\:color-burn': { 'background-blend-mode': 'color-burn' },
-        '.bg\\:blend\\:hard-light': { 'background-blend-mode': 'hard-light' },
-        '.bg\\:blend\\:soft-light': { 'background-blend-mode': 'soft-light' },
-        '.bg\\:blend\\:difference': { 'background-blend-mode': 'difference' },
-        '.bg\\:blend\\:multiply': { 'background-blend-mode': 'multiply' },
-        '.bg\\:blend\\:exclusion': { 'background-blend-mode': 'exclusion' },
-        '.bg\\:blend\\:hue': { 'background-blend-mode': 'hue' },
-        '.bg\\:blend\\:saturation': { 'background-blend-mode': 'saturation' },
-        '.bg\\:blend\\:color': { 'background-blend-mode': 'color' },
-        '.bg\\:blend\\:luminosity': { 'background-blend-mode': 'luminosity' },
-        '.bg\\:blend\\:normal': { 'background-blend-mode': 'normal' },
+        [`.${e('bg:blend:screen')}`]: { 'background-blend-mode': 'screen' },
+        [`.${e('bg:blend:overlay')}`]: { 'background-blend-mode': 'overlay' },
+        [`.${e('bg:blend:darken')}`]: { 'background-blend-mode': 'darken' },
+        [`.${e('bg:blend:lighten')}`]: { 'background-blend-mode': 'lighten' },
+        [`.${e('bg:blend:color-dodge')}`]: { 'background-blend-mode': 'color-dodge' },
+        [`.${e('bg:blend:color-burn')}`]: { 'background-blend-mode': 'color-burn' },
+        [`.${e('bg:blend:hard-light')}`]: { 'background-blend-mode': 'hard-light' },
+        [`.${e('bg:blend:soft-light')}`]: { 'background-blend-mode': 'soft-light' },
+        [`.${e('bg:blend:difference')}`]: { 'background-blend-mode': 'difference' },
+        [`.${e('bg:blend:multiply')}`]: { 'background-blend-mode': 'multiply' },
+        [`.${e('bg:blend:exclusion')}`]: { 'background-blend-mode': 'exclusion' },
+        [`.${e('bg:blend:hue')}`]: { 'background-blend-mode': 'hue' },
+        [`.${e('bg:blend:saturation')}`]: { 'background-blend-mode': 'saturation' },
+        [`.${e('bg:blend:color')}`]: { 'background-blend-mode': 'color' },
+        [`.${e('bg:blend:luminosity')}`]: { 'background-blend-mode': 'luminosity' },
+        [`.${e('bg:blend:normal')}`]: { 'background-blend-mode': 'normal' },
       },
       variants('backgroundBlend')
     )

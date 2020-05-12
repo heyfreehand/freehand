@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('boxShadow'), (value, modifier) => {
         const className =
-          modifier === 'default' ? 'shadow' : e(`shadow\:${modifier}`)
+          modifier === 'default' ? 'shadow' : e(`shadow:${modifier}`)
         return [
           `.${className}`,
           {

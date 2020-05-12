@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('order'), (value, modifier) => {
         return [
-          `.${e(`order\:${modifier}`)}`,
+          `.${e(`order:${modifier}`)}`,
           {
             order: value,
           },

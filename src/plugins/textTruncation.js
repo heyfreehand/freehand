@@ -1,9 +1,9 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.text\\:truncate': {
+        [`.${e('text:truncate')}`]: {
           overflow: 'hidden',
           'text-overflow': 'ellipsis',
           'white-space': 'nowrap',

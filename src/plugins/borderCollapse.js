@@ -1,10 +1,10 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.b\\:collapse': { 'border-collapse': 'collapse' },
-        '.b\\:separate': { 'border-collapse': 'separate' },
+        [`.${e('b:collapse')}`]: { 'border-collapse': 'collapse' },
+        [`.${e('b:separate')}`]: { 'border-collapse': 'separate' },
       },
       variants('borderCollapse')
     )

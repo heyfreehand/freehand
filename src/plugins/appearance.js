@@ -1,9 +1,9 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.appearance\\:off': { appearance: 'none' },
+        [`.${e('appearance:off')}`]: { appearance: 'none' },
       },
       variants('appearance')
     )

@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('left'), (value, modifier) => {
         return [
-          `.${e(`left\:${modifier}`)}`,
+          `.${e(`left:${modifier}`)}`,
           {
             left: value,
           },

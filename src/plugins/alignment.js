@@ -1,51 +1,51 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.ai\\:start': {
+        [`.${e('ai:start')}`]: {
           'align-items': 'flex-start',
         },
-        '.ai\\:end': {
+        [`.${e('ai:end')}`]: {
           'align-items': 'flex-end',
         },
-        '.ai\\:center': {
+        [`.${e('ai:center')}`]: {
           'align-items': 'center',
         },
-        '.ai\\:baseline': {
+        [`.${e('ai:baseline')}`]: {
           'align-items': 'baseline',
         },
-        '.ai\\:stretch': {
+        [`.${e('ai:stretch')}`]: {
           'align-items': 'stretch',
         },
-        '.ac\\:center': {
+        [`.${e('ac:center')}`]: {
           'align-content': 'center',
         },
-        '.ac\\:start': {
+        [`.${e('ac:start')}`]: {
           'align-content': 'flex-start',
         },
-        '.ac\\:end': {
+        [`.${e('ac:end')}`]: {
           'align-content': 'flex-end',
         },
-        '.ac\\:between': {
+        [`.${e('ac:between')}`]: {
           'align-content': 'space-between',
         },
-        '.ac\\:around': {
+        [`.${e('ac:around')}`]: {
           'align-content': 'space-around',
         },
-        '.as\\:auto': {
+        [`.${e('as:auto')}`]: {
           'align-self': 'auto',
         },
-        '.as\\:start': {
+        [`.${e('as:start')}`]: {
           'align-self': 'flex-start',
         },
-        '.as\\:end': {
+        [`.${e('as:end')}`]: {
           'align-self': 'flex-end',
         },
-        '.as\\:center': {
+        [`.${e('as:center')}`]: {
           'align-self': 'center',
         },
-        '.as\\:stretch': {
+        [`.${e('as:stretch')}`]: {
           'align-self': 'stretch',
         },
       },

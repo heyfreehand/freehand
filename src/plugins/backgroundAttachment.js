@@ -1,11 +1,11 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.bg\\:fixed': { 'background-attachment': 'fixed' },
-        '.bg\\:local': { 'background-attachment': 'local' },
-        '.bg\\:scroll': { 'background-attachment': 'scroll' },
+        [`.${e('bg:fixed')}`]: { 'background-attachment': 'fixed' },
+        [`.${e('bg:local')}`]: { 'background-attachment': 'local' },
+        [`.${e('bg:scroll')}`]: { 'background-attachment': 'scroll' },
       },
       variants('backgroundAttachment')
     )

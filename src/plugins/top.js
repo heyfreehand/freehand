@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('top'), (value, modifier) => {
         return [
-          `.${e(`top\:${modifier}`)}`,
+          `.${e(`top:${modifier}`)}`,
           {
             top: value,
           },

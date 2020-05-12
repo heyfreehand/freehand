@@ -1,12 +1,12 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.text\\:left': { 'text-align': 'left' },
-        '.text\\:center': { 'text-align': 'center' },
-        '.text\\:right': { 'text-align': 'right' },
-        '.text\\:justify': { 'text-align': 'justify' },
+        [`.${e('text:left')}`]: { 'text-align': 'left' },
+        [`.${e('text:center')}`]: { 'text-align': 'center' },
+        [`.${e('text:right')}`]: { 'text-align': 'right' },
+        [`.${e('text:justify')}`]: { 'text-align': 'justify' },
       },
       variants('textJustification')
     )

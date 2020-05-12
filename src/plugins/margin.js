@@ -27,7 +27,7 @@ export default function() {
 
     const utilities = _.flatMap(generators, generator => {
       return _.flatMap(theme('margin'), (size, modifier) => {
-        return generator(size, modifier === 'default' ? '' : `\:${modifier}`)
+        return generator(size, modifier === 'default' ? '' : `:${modifier}`)
       })
     })
 

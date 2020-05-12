@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('minWidth'), (value, modifier) => {
         return [
-          `.${e(`min-w\:${modifier}`)}`,
+          `.${e(`min-w:${modifier}`)}`,
           {
             'min-width': value,
           },

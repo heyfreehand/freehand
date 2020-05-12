@@ -12,13 +12,13 @@
 */
 
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.hide\\:all': {
+        [`.${e('hide:all')}`]: {
           display: 'none',
         },
-        '.hide\\:screen': {
+        [`.${e('hide:screen')}`]: {
           position: 'absolute',
           width: '1px',
           height: '1px',
@@ -29,7 +29,7 @@ export default function() {
           whiteSpace: 'nowrap',
           borderWidth: '0',
         },
-        '.show\\:screen': {
+        [`.${e('show:screen')}`]: {
           position: 'static',
           width: 'auto',
           height: 'auto',
@@ -39,7 +39,7 @@ export default function() {
           clip: 'auto',
           whiteSpace: 'normal',
         },
-        '.empty\\:hide:empty': {
+        [`.${e('empty:hide:empty')}`]: {
           display: 'none',
         },
       },

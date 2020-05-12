@@ -1,9 +1,9 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.scroll\\:smooth': {
+        [`.${e('scroll:smooth')}`]: {
           'max-height': [ '100vh', '-webkit-fill-available', ],
           'overflow-y': 'scroll',
           'scroll-behavior': 'smooth',

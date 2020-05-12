@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('textTracking'), (value, modifier) => {
         return [
-          `.${e(`tracking\:${modifier}`)}`,
+          `.${e(`tracking:${modifier}`)}`,
           {
             'letter-spacing': value,
           },

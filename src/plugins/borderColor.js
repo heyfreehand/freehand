@@ -9,7 +9,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(_.omit(colors, 'default'), (value, modifier) => {
         return [
-          `.${e(`b\:${modifier}`)}`,
+          `.${e(`b:${modifier}`)}`,
           {
             'border-color': value,
           },

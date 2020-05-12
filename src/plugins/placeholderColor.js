@@ -7,7 +7,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(flattenColorPalette(theme('placeholderColor')), (value, modifier) => {
         return [
-          `.${e(`placeholder\:${modifier}`)}::placeholder`,
+          `.${e(`placeholder:${modifier}`)}::placeholder`,
           {
             color: value,
           },

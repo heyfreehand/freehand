@@ -1,13 +1,13 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.text\\:smooth': {
+        [`.${e('text:smooth')}`]: {
           '-webkit-font-smoothing': 'antialiased',
           '-moz-osx-font-smoothing': 'grayscale',
         },
-        '.text\\:rough': {
+        [`.${e('text:rough')}`]: {
           '-webkit-font-smoothing': 'auto',
           '-moz-osx-font-smoothing': 'auto',
         },

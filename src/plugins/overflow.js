@@ -1,22 +1,22 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.overflow\\:auto': { overflow: 'auto' },
-        '.overflow\\:x\\:auto': { 'overflow-x': 'auto' },
-        '.overflow\\:y\\:auto': { 'overflow-y': 'auto' },
-        '.overflow\\:off': { overflow: 'hidden' },
-        '.overflow\\:x\\:off': { 'overflow-x': 'hidden' },
-        '.overflow\\:y\\:off': { 'overflow-y': 'hidden' },
-        '.overflow\\:on': { overflow: 'visible' },
-        '.overflow\\:x\\:on': { 'overflow-x': 'visible' },
-        '.overflow\\:y\\:on': { 'overflow-y': 'visible' },
-        '.overflow\\:scroll': { overflow: 'scroll' },
-        '.overflow\\:x\\:scroll': { 'overflow-x': 'scroll' },
-        '.overflow\\:y\\:scroll': { 'overflow-y': 'scroll' },
-        '.scrolling\\:touch': { '-webkit-overflow-scrolling': 'touch' },
-        '.scrolling\\:auto': { '-webkit-overflow-scrolling': 'auto' },
+        [`.${e('overflow:auto')}`]: { overflow: 'auto' },
+        [`.${e('overflow:x:auto')}`]: { 'overflow-x': 'auto' },
+        [`.${e('overflow:y:auto')}`]: { 'overflow-y': 'auto' },
+        [`.${e('overflow:off')}`]: { overflow: 'hidden' },
+        [`.${e('overflow:x:off')}`]: { 'overflow-x': 'hidden' },
+        [`.${e('overflow:y:off')}`]: { 'overflow-y': 'hidden' },
+        [`.${e('overflow:on')}`]: { overflow: 'visible' },
+        [`.${e('overflow:x:on')}`]: { 'overflow-x': 'visible' },
+        [`.${e('overflow:y:on')}`]: { 'overflow-y': 'visible' },
+        [`.${e('overflow:scroll')}`]: { overflow: 'scroll' },
+        [`.${e('overflow:x:scroll')}`]: { 'overflow-x': 'scroll' },
+        [`.${e('overflow:y:scroll')}`]: { 'overflow-y': 'scroll' },
+        [`.${e('scrolling:touch')}`]: { '-webkit-overflow-scrolling': 'touch' },
+        [`.${e('scrolling:auto')}`]: { '-webkit-overflow-scrolling': 'auto' },
       },
       variants('overflow')
     )

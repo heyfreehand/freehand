@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('maxHeight'), (value, modifier) => {
         return [
-          `.${e(`max-h\:${modifier}`)}`,
+          `.${e(`max-h:${modifier}`)}`,
           {
             'max-height': value,
           },

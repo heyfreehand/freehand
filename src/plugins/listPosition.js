@@ -1,10 +1,10 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.list\\:inside': { 'list-style-position': 'inside' },
-        '.list\\:outside': { 'list-style-position': 'outside' },
+        [`.${e('list:inside')}`]: { 'list-style-position': 'inside' },
+        [`.${e('list:outside')}`]: { 'list-style-position': 'outside' },
       },
       variants('listPosition')
     )

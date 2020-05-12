@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('backgroundSize'), (value, modifier) => {
         return [
-          `.${e(`bg\:${modifier}`)}`,
+          `.${e(`bg:${modifier}`)}`,
           {
             'background-size': value,
           },

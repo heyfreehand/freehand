@@ -1,21 +1,21 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.b\\:solid': {
+        [`.${e('b:solid')}`]: {
           'border-style': 'solid',
         },
-        '.b\\:dashed': {
+        [`.${e('b:dashed')}`]: {
           'border-style': 'dashed',
         },
-        '.b\\:dotted': {
+        [`.${e('b:dotted')}`]: {
           'border-style': 'dotted',
         },
-        '.b\\:double': {
+        [`.${e('b:double')}`]: {
           'border-style': 'double',
         },
-        '.b\\:off': {
+        [`.${e('b:off')}`]: {
           'border-style': 'none',
         },
       },

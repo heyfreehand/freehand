@@ -5,7 +5,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('strokeWidth'), (value, modifier) => {
         return [
-          `.${e(`stroke\:${modifier}`)}`,
+          `.${e(`stroke:${modifier}`)}`,
           {
             strokeWidth: value,
           },

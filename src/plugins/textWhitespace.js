@@ -1,13 +1,13 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.text\\:whitespace': { 'white-space': 'normal' },
-        '.text\\:wrap\\:off': { 'white-space': 'nowrap' },
-        '.text\\:pre': { 'white-space': 'pre' },
-        '.text\\:pre\\:line': { 'white-space': 'pre-line' },
-        '.text\\:pre\\:wrap': { 'white-space': 'pre-wrap' },
+        [`.${e('text:whitespace')}`]: { 'white-space': 'normal' },
+        [`.${e('text:wrap:off')}`]: { 'white-space': 'nowrap' },
+        [`.${e('text:pre')}`]: { 'white-space': 'pre' },
+        [`.${e('text:pre:line')}`]: { 'white-space': 'pre-line' },
+        [`.${e('text:pre:wrap')}`]: { 'white-space': 'pre-wrap' },
       },
       variants('textWhitespace')
     )

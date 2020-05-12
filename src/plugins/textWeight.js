@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('textWeight'), (value, modifier) => {
         return [
-          `.${e(`text\:${modifier}`)}`,
+          `.${e(`text:${modifier}`)}`,
           {
             'font-weight': value,
           },

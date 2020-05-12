@@ -1,10 +1,10 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.table\\:auto': { 'table-layout': 'auto' },
-        '.table\\:fixed': { 'table-layout': 'fixed' },
+        [`.${e('table:auto')}`]: { 'table-layout': 'auto' },
+        [`.${e('table:fixed')}`]: { 'table-layout': 'fixed' },
       },
       variants('tableLayout')
     )

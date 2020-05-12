@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('opacity'), (value, modifier) => {
         return [
-          `.${e(`opacity\:${modifier}`)}`,
+          `.${e(`opacity:${modifier}`)}`,
           {
             opacity: value,
           },

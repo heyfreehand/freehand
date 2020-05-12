@@ -1,14 +1,14 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.bg\\:repeat': { 'background-repeat': 'repeat' },
-        '.bg\\:repeat\\:off': { 'background-repeat': 'no-repeat' },
-        '.bg\\:repeat\\:x': { 'background-repeat': 'repeat-x' },
-        '.bg\\:repeat\\:y': { 'background-repeat': 'repeat-y' },
-        '.bg\\:repeat\\:round': { 'background-repeat': 'round' },
-        '.bg\\:repeat\\:space': { 'background-repeat': 'space' },
+        [`.${e('bg:repeat')}`]: { 'background-repeat': 'repeat' },
+        [`.${e('bg:repeat:off')}`]: { 'background-repeat': 'no-repeat' },
+        [`.${e('bg:repeat:x')}`]: { 'background-repeat': 'repeat-x' },
+        [`.${e('bg:repeat:y')}`]: { 'background-repeat': 'repeat-y' },
+        [`.${e('bg:repeat:round')}`]: { 'background-repeat': 'round' },
+        [`.${e('bg:repeat:space')}`]: { 'background-repeat': 'space' },
       },
       variants('backgroundRepeat')
     )

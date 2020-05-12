@@ -7,7 +7,7 @@ function className(classPrefix, key) {
     return classPrefix
   }
 
-  return `${classPrefix}\:${key}`
+  return `${classPrefix}:${key}`
 }
 
 export default function createUtilityPlugin(themeKey, utilityVariations) {

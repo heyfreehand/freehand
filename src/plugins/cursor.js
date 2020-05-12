@@ -1,17 +1,17 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.cursor\\:auto': { cursor: 'auto' },
-        '.cursor\\:default': { cursor: 'default' },
-        '.cursor\\:pointer': { cursor: 'pointer' },
-        '.cursor\\:wait': { cursor: 'wait' },
-        '.cursor\\:text': { cursor: 'text' },
-        '.cursor\\:move': { cursor: 'move' },
-        '.cursor\\:not-allowed': { cursor: 'not-allowed' },
-        '.cursor\\:grab': { cursor: 'grab' },
-        '.cursor\\:grab:active': { cursor: 'grabbing' },
+        [`.${e('cursor:auto')}`]: { cursor: 'auto' },
+        [`.${e('cursor:default')}`]: { cursor: 'default' },
+        [`.${e('cursor:pointer')}`]: { cursor: 'pointer' },
+        [`.${e('cursor:wait')}`]: { cursor: 'wait' },
+        [`.${e('cursor:text')}`]: { cursor: 'text' },
+        [`.${e('cursor:move')}`]: { cursor: 'move' },
+        [`.${e('cursor:not-allowed')}`]: { cursor: 'not-allowed' },
+        [`.${e('cursor:grab')}`]: { cursor: 'grab' },
+        [`.${e('cursor:grab:active')}`]: { cursor: 'grabbing' },
       },
       variants('cursor')
     )

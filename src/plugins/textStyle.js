@@ -1,10 +1,10 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.text\\:italic': { 'font-style': 'italic' },
-        '.text\\:roman': { 'font-style': 'normal' },
+        [`.${e('text:italic')}`]: { 'font-style': 'italic' },
+        [`.${e('text:roman')}`]: { 'font-style': 'normal' },
       },
       variants('textStyle')
     )

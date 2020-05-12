@@ -1,18 +1,18 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.flex\\:row': {
+        [`.${e('flex:row')}`]: {
           'flex-direction': 'row',
         },
-        '.flex\\:row\\:reverse': {
+        [`.${e('flex:row:reverse')}`]: {
           'flex-direction': 'row-reverse',
         },
-        '.flex\\:col': {
+        [`.${e('flex:col')}`]: {
           'flex-direction': 'column',
         },
-        '.flex\\:col\\:reverse': {
+        [`.${e('flex:col:reverse')}`]: {
           'flex-direction': 'column-reverse',
         },
       },

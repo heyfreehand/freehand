@@ -1,15 +1,15 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.flex\\:wrap': {
+        [`.${e('flex:wrap')}`]: {
           'flex-wrap': 'wrap',
         },
-        '.flex\\:wrap\\:reverse': {
+        [`.${e('flex:wrap:reverse')}`]: {
           'flex-wrap': 'wrap-reverse',
         },
-        '.flex\\:wrap\\:off': {
+        [`.${e('flex:wrap:off')}`]: {
           'flex-wrap': 'nowrap',
         },
       },

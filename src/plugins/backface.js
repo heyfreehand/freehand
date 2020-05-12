@@ -1,10 +1,10 @@
 // Done
 export default function() {
-  return function({ addUtilities, variants }) {
+  return function({ addUtilities, e, variants }) {
     addUtilities(
       {
-        '.backface\\:on': { 'backface-visibility': 'visible' },
-        '.backface\\:off': { 'backface-visibility': 'hidden' },
+        [`.${e('backface:on')}`]: { 'backface-visibility': 'visible' },
+        [`.${e('backface:off')}`]: { 'backface-visibility': 'hidden' },
       },
       variants('backface')
     )

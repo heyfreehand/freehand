@@ -3,7 +3,7 @@ import _ from 'lodash'
 import reduceCalc from 'reduce-css-calc'
 
 module.exports = function() {
-  return function({ addComponents, theme }) {
+  return function({ addComponents, e, theme }) {
     const paddingWidth = theme('paddingWidth')
 
     const baseGenerator = direction => {
@@ -13,8 +13,8 @@ module.exports = function() {
           _.map(paddingWidth.width, (widthValue, widthModifier) => {
             const suffix = `${widthModifier}-${paddingModifier}`
             return [
-              [`.pw\\:${suffix}`].join(', '),
-              [`.p${direction === 'left' ? 'l' : 'r'}w\\:${suffix}`].join(', ')
+              [`.${e(`pw:${suffix}`)}`].join(', '),
+              [`.${e(`p${direction === 'left' ? 'l' : 'r'}w:${suffix}`)}`].join(', '),
             ]
           })
         )
@@ -31,8 +31,8 @@ module.exports = function() {
         _.map(paddingWidth.padding, (paddingValue, paddingModifier) => {
           paddingModifier = paddingModifier === 'default' ? '' : `-${paddingModifier}`
           const modifiers = _.flatten([
-            [`.pw\\:${widthModifier}${paddingModifier}`].join(', '),
-            [`.p${direction === 'left' ? 'l' : 'r'}w\\:${widthModifier}${paddingModifier}`].join(', ')
+            [`.${e(`pw:${widthModifier}${paddingModifier}`)}`].join(', '),
+            [`.${e(`p${direction === 'left' ? 'l' : 'r'}w:${widthModifier}${paddingModifier}`)}`].join(', '),
           ])
           return [
             [modifiers],

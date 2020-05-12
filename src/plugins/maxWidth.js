@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('maxWidth'), (value, modifier) => {
         return [
-          `.${e(`max-w\:${modifier}`)}`,
+          `.${e(`max-w:${modifier}`)}`,
           {
             'max-width': value,
           },

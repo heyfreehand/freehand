@@ -6,7 +6,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('objectPosition'), (value, modifier) => {
         return [
-          `.${e(`object\:${modifier}`)}`,
+          `.${e(`object:${modifier}`)}`,
           {
             'object-position': value,
           },
