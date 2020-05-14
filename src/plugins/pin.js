@@ -13,35 +13,35 @@ export default function() {
         },
       }),
       (size, modifier) => ({
-        [`.${e(`pin\:y${modifier}`)}`]: {
+        [`.${e(`pin:y${modifier}`)}`]: {
           top: `${size}`,
           bottom: `${size}`,
         },
-        [`.${e(`pin\:x${modifier}`)}`]: {
+        [`.${e(`pin:x${modifier}`)}`]: {
           right: `${size}`,
           left: `${size}`,
         },
       }),
       (size, modifier) => ({
-        [`.${e(`pin\:t${modifier}`)}`]: { top: `${size}` },
-        [`.${e(`pin\:r${modifier}`)}`]: { right: `${size}` },
-        [`.${e(`pin\:b${modifier}`)}`]: { bottom: `${size}` },
-        [`.${e(`pin\:l${modifier}`)}`]: { left: `${size}` },
+        [`.${e(`pin:t${modifier}`)}`]: { top: `${size}` },
+        [`.${e(`pin:r${modifier}`)}`]: { right: `${size}` },
+        [`.${e(`pin:b${modifier}`)}`]: { bottom: `${size}` },
+        [`.${e(`pin:l${modifier}`)}`]: { left: `${size}` },
       }),
       (size, modifier) => ({
-        [`.${e(`pin\:tl${modifier}`)}`]: {
+        [`.${e(`pin:tl${modifier}`)}`]: {
           top: `${size}`,
           left: `${size}`,
         },
-        [`.${e(`pin\:tr${modifier}`)}`]: {
+        [`.${e(`pin:tr${modifier}`)}`]: {
           top: `${size}`,
           right: `${size}`,
         },
-        [`.${e(`pin\:br${modifier}`)}`]: {
+        [`.${e(`pin:br${modifier}`)}`]: {
           bottom: `${size}`,
           right: `${size}`,
         },
-        [`.${e(`pin\:bl${modifier}`)}`]: {
+        [`.${e(`pin:bl${modifier}`)}`]: {
           bottom: `${size}`,
           left: `${size}`,
         },

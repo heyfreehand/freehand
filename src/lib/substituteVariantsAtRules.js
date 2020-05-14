@@ -1,21 +1,39 @@
 import _ from 'lodash'
 import postcss from 'postcss'
-import selectorParser from 'postcss-selector-parser'
+import parser from 'postcss-selector-parser'
 import generateVariantFunction from '../util/generateVariantFunction'
 import prefixSelector from '../util/prefixSelector'
 
-function generatePseudoClassVariant(pseudoClass, selectorPrefix = pseudoClass) {
+function generatePseudoClassVariant(pseudoClass, prefix = pseudoClass) {
   return generateVariantFunction(({ modifySelectors, separator }) => {
     return modifySelectors(({ selector }) => {
-      return selectorParser(selectors => {
+      return parser(selectors => {
         selectors.walkClasses(sel => {
-          sel.value = `${selectorPrefix}${separator}${sel.value}`
-          sel.parent.insertAfter(sel, selectorParser.pseudo({ value: `:${pseudoClass}` }))
+          sel.value = `${prefix}${separator}${sel.value}`
+          sel.parent.insertAfter(sel, parser.pseudo({ value: `:${pseudoClass}` }))
         })
       }).processSync(selector)
     })
   })
 }
+
+function generateMultiPseudoClassVariant(pseudoClass, prefix = pseudoClass) {
+  return generateVariantFunction(({ modifySelectors, separator }) => {
+    return modifySelectors(({ selector }) => {
+      return parser(selectors => {
+        selectors.each(sel => {
+          _.forEach(pseudoClass, (pseudo => {
+            const clone = sel.clone()
+            clone.nodes[0].value = `${prefix}${separator}${clone.nodes[0].value}`
+            clone.append(parser.pseudo({ value: `:${pseudo}` }))
+            sel.parent.insertAfter(sel, clone)
+          }))
+          sel.parent.removeChild(sel)
+        })
+      }).processSync(selector)
+    })
+  })
+} 
 
 function ensureIncludesDefault(variants) {
   return variants.includes('default') ? variants : ['default', ...variants]
@@ -25,12 +43,12 @@ const defaultVariantGenerators = config => ({
   default: generateVariantFunction(() => {}),
   'group-hover': generateVariantFunction(({ modifySelectors, separator }) => {
     return modifySelectors(({ selector }) => {
-      return selectorParser(selectors => {
+      return parser(selectors => {
         selectors.walkClasses(sel => {
           sel.value = `group-hover${separator}${sel.value}`
           sel.parent.insertBefore(
             sel,
-            selectorParser().astSync(prefixSelector(config.prefix, '.group:hover '))
+            parser().astSync(prefixSelector(config.prefix, '.group:hover '))
           )
         })
       }).processSync(selector)
@@ -46,6 +64,7 @@ const defaultVariantGenerators = config => ({
   last: generatePseudoClassVariant('last-child', 'last'),
   odd: generatePseudoClassVariant('nth-child(odd)', 'odd'),
   even: generatePseudoClassVariant('nth-child(even)', 'even'),
+  interact: generateMultiPseudoClassVariant([ 'hover', 'focus-within', 'focus', 'active', ], 'interact'),
 })
 
 export default function(config, { variantGenerators: pluginVariantGenerators }) {
