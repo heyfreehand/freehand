@@ -280,7 +280,7 @@ test('plugins can add base styles with object syntax', () => {
     button {
       font-family: inherit
     }
-    `)
+  `)
 })
 
 test('plugins can add base styles with raw PostCSS nodes', () => {
@@ -410,7 +410,7 @@ test('plugins can create components with mixed object styles and raw PostCSS nod
     .btn\\:blue:hover {
       background-color: darkblue
     }
-    `)
+  `)
 })
 
 test('plugins can create components with media queries with object syntax', () => {
@@ -462,7 +462,7 @@ test('plugins can create components with media queries with object syntax', () =
         max-width: 300px
       }
     }
-    `)
+  `)
 })
 
 test('media queries can be defined multiple times using objects-in-array syntax', () => {
@@ -516,7 +516,7 @@ test('media queries can be defined multiple times using objects-in-array syntax'
         display: inline-block
       }
     }
-    `)
+  `)
 })
 
 test('plugins can create nested rules', () => {
@@ -572,7 +572,7 @@ test('plugins can create nested rules', () => {
     h1 .btn\\:blue {
       color: purple;
     }
-    `)
+  `)
 })
 
 test('plugins can create rules with escaped selectors', () => {
@@ -596,7 +596,7 @@ test('plugins can create rules with escaped selectors', () => {
         top: 25%
       }
     }
-    `)
+  `)
 })
 
 test('plugins can access the current config', () => {
@@ -656,7 +656,7 @@ test('plugins can access the current config', () => {
         max-width: 1200px
       }
     }
-    `)
+  `)
 })
 
 test('plugins can access the variants config directly', () => {
@@ -699,7 +699,7 @@ test('plugins can access the variants config directly', () => {
         object-fit: cover
       }
     }
-    `)
+  `)
 })
 
 test('plugins apply all global variants when variants are configured globally', () => {
@@ -741,7 +741,7 @@ test('plugins apply all global variants when variants are configured globally', 
         transform: rotate(90deg)
       }
     }
-    `)
+  `)
 })
 
 test('plugins can provide fallbacks to keys missing from the config', () => {
@@ -770,7 +770,7 @@ test('plugins can provide fallbacks to keys missing from the config', () => {
     .btn {
       border-radius: .25rem
     }
-    `)
+  `)
 })
 
 test('variants are optional when adding utilities', () => {
@@ -778,7 +778,7 @@ test('variants are optional when adding utilities', () => {
     [
       function({ addUtilities }) {
         addUtilities({
-          '.border-collapse': {
+          '.b\\:collapse': {
             'border-collapse': 'collapse',
           },
         })
@@ -789,7 +789,7 @@ test('variants are optional when adding utilities', () => {
 
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .border-collapse {
+      .b\\:collapse {
         border-collapse: collapse
       }
     }`)
@@ -807,7 +807,7 @@ test('plugins can add multiple sets of utilities and components', () => {
         })
 
         addUtilities({
-          '.skew-12deg': {
+          '.skew\\:12deg': {
             transform: 'skewY(-12deg)',
           },
         })
@@ -820,7 +820,7 @@ test('plugins can add multiple sets of utilities and components', () => {
         })
 
         addUtilities({
-          '.border-collapse': {
+          '.b\\:collapse': {
             borderCollapse: 'collapse',
           },
         })
@@ -831,12 +831,12 @@ test('plugins can add multiple sets of utilities and components', () => {
 
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .skew-12deg {
+      .skew\\:12deg {
         transform: skewY(-12deg)
       }
     }
     @variants {
-      .border-collapse {
+      .b\\:collapse {
         border-collapse: collapse
       }
     }
@@ -951,7 +951,7 @@ test('important utilities are not made double important when important option is
         transform: rotate(90deg) !important
       }
     }
-    `)
+  `)
 })
 
 test("component declarations respect the 'prefix' option by default", () => {
@@ -974,7 +974,7 @@ test("component declarations respect the 'prefix' option by default", () => {
     .tw-btn\\:blue {
       background-color: blue
     }
-    `)
+  `)
 })
 
 test('all selectors in a rule are prefixed', () => {
@@ -982,7 +982,7 @@ test('all selectors in a rule are prefixed', () => {
     [
       function({ addUtilities, addComponents }) {
         addUtilities({
-          '.rotate\\:90, .rotate-1\\/4': {
+          '.rotate\\:90, .rotate\\:1\\/4': {
             transform: 'rotate(90deg)',
           },
         })
@@ -1000,17 +1000,17 @@ test('all selectors in a rule are prefixed', () => {
 
   expect(css(utilities)).toMatchCss(`
     @variants {
-      .tw-rotate\\:90, .tw-rotate-1\\/4 {
+      .tw-rotate\\:90, .tw-rotate\\:1\\/4 {
         transform: rotate(90deg)
       }
     }
-    `)
+  `)
 
   expect(css(components)).toMatchCss(`
     .tw-btn\\:blue, .tw-btn\\:red {
       padding: 10px
     }
-    `)
+  `)
 })
 
 test("component declarations can optionally ignore 'prefix' option", () => {
@@ -1036,7 +1036,7 @@ test("component declarations can optionally ignore 'prefix' option", () => {
     .btn\\:blue {
       background-color: blue
     }
-    `)
+  `)
 })
 
 test("component declarations are not affected by the 'important' option", () => {
@@ -1059,7 +1059,7 @@ test("component declarations are not affected by the 'important' option", () => 
     .btn\\:blue {
       background-color: blue
     }
-    `)
+  `)
 })
 
 test("plugins can apply the user's chosen prefix to components manually", () => {
@@ -1085,7 +1085,7 @@ test("plugins can apply the user's chosen prefix to components manually", () => 
     .tw-btn\\:blue {
       background-color: blue
     }
-    `)
+  `)
 })
 
 test('prefix can optionally be ignored for utilities', () => {
@@ -1116,7 +1116,7 @@ test('prefix can optionally be ignored for utilities', () => {
         transform: rotate(90deg) !important
       }
     }
-    `)
+  `)
 })
 
 test('important can optionally be ignored for utilities', () => {
@@ -1147,7 +1147,7 @@ test('important can optionally be ignored for utilities', () => {
         transform: rotate(90deg)
       }
     }
-    `)
+  `)
 })
 
 test('variants can still be specified when ignoring prefix and important options', () => {
@@ -1180,7 +1180,7 @@ test('variants can still be specified when ignoring prefix and important options
         transform: rotate(90deg)
       }
     }
-    `)
+  `)
 })
 
 test('prefix will prefix all classes in a selector', () => {
@@ -1206,7 +1206,7 @@ test('prefix will prefix all classes in a selector', () => {
     .tw-btn\\:blue .tw-w-1\\/4 > h1.tw-text-xl + a .tw-bar {
       background-color: blue
     }
-    `)
+  `)
 })
 
 test('plugins can be provided as an object with a handler function', () => {

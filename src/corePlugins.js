@@ -91,10 +91,10 @@ import gridRowStart from './plugins/gridRowStart'
 import gridRowEnd from './plugins/gridRowEnd'
 import transform from './plugins/transform'
 import transformOrigin from './plugins/transformOrigin'
-import scale from './plugins/scale'
-import rotate from './plugins/rotate'
-import translate from './plugins/translate'
-import skew from './plugins/skew'
+import transformRotate from './plugins/transformRotate'
+import transformScale from './plugins/transformScale'
+import transformSkew from './plugins/transformSkew'
+import transformTranslate from './plugins/transformTranslate'
 import transitionProperty from './plugins/transitionProperty'
 import transitionTimingFunction from './plugins/transitionTimingFunction'
 import transitionDuration from './plugins/transitionDuration'
@@ -197,10 +197,10 @@ export default function({ corePlugins: corePluginConfig }) {
     gridRowEnd,
     transform,
     transformOrigin,
-    scale,
-    rotate,
-    translate,
-    skew,
+    transformRotate,
+    transformScale,
+    transformSkew,
+    transformTranslate,
     transitionProperty,
     transitionTimingFunction,
     transitionDuration,
