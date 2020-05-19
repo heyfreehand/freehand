@@ -5,6 +5,7 @@ import backface from './plugins/backface'
 import backgroundAttachment from './plugins/backgroundAttachment'
 import backgroundBlend from './plugins/backgroundBlend'
 import backgroundColor from './plugins/backgroundColor'
+import backgroundGradient from './plugins/backgroundGradient'
 import backgroundPosition from './plugins/backgroundPosition'
 import backgroundRepeat from './plugins/backgroundRepeat'
 import backgroundSize from './plugins/backgroundSize'
@@ -111,6 +112,7 @@ export default function({ corePlugins: corePluginConfig }) {
     backgroundAttachment,
     backgroundBlend,
     backgroundColor,
+    backgroundGradient,
     backgroundPosition,
     backgroundRepeat,
     backgroundSize,
