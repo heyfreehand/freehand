@@ -1,5 +1,5 @@
+// Done
 import _ from 'lodash'
-import flattenColorPalette from '../util/flattenColorPalette'
 
 export default function() {
   return function({ addUtilities, e, theme, variants }) {
