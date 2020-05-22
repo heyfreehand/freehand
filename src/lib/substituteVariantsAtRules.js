@@ -17,24 +17,6 @@ function generatePseudoClassVariant(pseudoClass, prefix = pseudoClass) {
   })
 }
 
-function generateMultiPseudoClassVariant(pseudoClass, prefix = pseudoClass) {
-  return generateVariantFunction(({ modifySelectors, separator }) => {
-    return modifySelectors(({ selector }) => {
-      return parser(selectors => {
-        selectors.each(sel => {
-          _.forEach(pseudoClass, (pseudo => {
-            const clone = sel.clone()
-            clone.nodes[0].value = `${prefix}${separator}${clone.nodes[0].value}`
-            clone.append(parser.pseudo({ value: `:${pseudo}` }))
-            sel.parent.insertAfter(sel, clone)
-          }))
-          sel.parent.removeChild(sel)
-        })
-      }).processSync(selector)
-    })
-  })
-} 
-
 function ensureIncludesDefault(variants) {
   return variants.includes('default') ? variants : ['default', ...variants]
 }
@@ -45,10 +27,23 @@ const defaultVariantGenerators = config => ({
     return modifySelectors(({ selector }) => {
       return parser(selectors => {
         selectors.walkClasses(sel => {
-          sel.value = `group-hover${separator}${sel.value}`
+          sel.value = `group:hover${separator}${sel.value}`
           sel.parent.insertBefore(
             sel,
             parser().astSync(prefixSelector(config.prefix, '.group:hover '))
+          )
+        })
+      }).processSync(selector)
+    })
+  }),
+  'group-focus': generateVariantFunction(({ modifySelectors, separator }) => {
+    return modifySelectors(({ selector }) => {
+      return parser(selectors => {
+        selectors.walkClasses(sel => {
+          sel.value = `group:focus${separator}${sel.value}`
+          sel.parent.insertBefore(
+            sel,
+            parser().astSync(prefixSelector(config.prefix, '.group:focus '))
           )
         })
       }).processSync(selector)
@@ -64,7 +59,38 @@ const defaultVariantGenerators = config => ({
   last: generatePseudoClassVariant('last-child', 'last'),
   odd: generatePseudoClassVariant('nth-child(odd)', 'odd'),
   even: generatePseudoClassVariant('nth-child(even)', 'even'),
-  interact: generateMultiPseudoClassVariant([ 'hover', 'focus-within', 'focus', 'active', ], 'interact'),
+  interact: generateVariantFunction(({ modifySelectors, separator }) => {
+    return modifySelectors(({ selector }) => {
+      return parser(selectors => {
+        selectors.each(sel => {
+          _.forEach([ 'hover', 'focus-within', 'focus', 'active' ], (pseudo => {
+            const clone = sel.clone()
+            clone.nodes[0].value = `${config.prefix}interact${separator}${clone.nodes[0].value}`
+            clone.append(parser.pseudo({ value: `:${pseudo}` }))
+            sel.parent.insertAfter(sel, clone)
+          }))
+          sel.parent.removeChild(sel)
+        })
+      }).processSync(selector)
+    })
+  }),
+  'group-interact': generateVariantFunction(({ modifySelectors, separator }) => {
+    return modifySelectors(({ selector }) => {
+      return parser(selectors => {
+        selectors.each(sel => {
+          const parent = sel.parent
+          _.forEach([ 'hover', 'focus-within', 'focus', 'active' ], (pseudo => {
+            const clone = sel.clone()
+            clone.nodes[0].value = `group:interact${separator}${clone.nodes[0].value}`
+            clone.prepend(parser.pseudo({ value: `:${pseudo} ` }))
+            clone.prepend(parser.className({ value: 'group' }))
+            parent.insertAfter(sel, clone)
+          }))
+          parent.removeChild(sel)
+        })
+      }).processSync(selector)
+    })
+  }),
 })
 
 export default function(config, { variantGenerators: pluginVariantGenerators }) {

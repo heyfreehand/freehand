@@ -1044,7 +1044,7 @@ module.exports = {
     textWeight: ['responsive', 'hover', 'focus', 'interact'],
     textWhitespace: ['responsive'],
     textAlignment: ['responsive'],
-    visibility: ['responsive'],
+    visibility: ['responsive', 'group-hover', 'group-focus', 'group-interact'],
     width: ['responsive'],
     wordBreak: ['responsive'],
     zIndex: ['responsive'],

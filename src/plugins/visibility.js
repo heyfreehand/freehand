@@ -15,8 +15,17 @@ export default function() {
   return function({ addUtilities, e, variants }) {
     addUtilities(
       {
+        [`.${e('empty:hide')}:empty`]: {
+          display: 'none',
+        },
         [`.${e('hide:all')}`]: {
           display: 'none',
+        },
+        [`.${e('hide')}`]: {
+          visibility: 'hidden',
+        },
+        [`.${e('show')}`]: {
+          visibility: 'visible',
         },
         [`.${e('hide:screen')}`]: {
           position: 'absolute',
@@ -38,9 +47,6 @@ export default function() {
           overflow: 'visible',
           clip: 'auto',
           whiteSpace: 'normal',
-        },
-        [`.${e('empty:hide:empty')}`]: {
-          display: 'none',
         },
       },
       variants('visibility')
