@@ -1,9 +1,18 @@
 import preflight from './plugins/preflight'
 import container from './plugins/container'
+import animation from './plugins/animation'
+import animationDelay from './plugins/animationDelay'
+import animationDirection from './plugins/animationDirection'
+import animationDuration from './plugins/animationDuration'
+import animationFillMode from './plugins/animationFillMode'
+import animationIterationCount from './plugins/animationIterationCount'
+import animationPlayState from './plugins/animationPlayState'
+import animationTimingFunction from './plugins/animationTimingFunction'
 import appearance from './plugins/appearance'
 import backface from './plugins/backface'
 import backgroundAttachment from './plugins/backgroundAttachment'
 import backgroundBlend from './plugins/backgroundBlend'
+import backgroundClip from './plugins/backgroundClip'
 import backgroundColor from './plugins/backgroundColor'
 import backgroundGradient from './plugins/backgroundGradient'
 import backgroundPosition from './plugins/backgroundPosition'
@@ -36,6 +45,7 @@ import maxHeight from './plugins/maxHeight'
 import maxWidth from './plugins/maxWidth'
 import minHeight from './plugins/minHeight'
 import minWidth from './plugins/minWidth'
+import mixBlend from './plugins/mixBlend'
 import objectFit from './plugins/objectFit'
 import objectPosition from './plugins/objectPosition'
 import opacity from './plugins/opacity'
@@ -60,6 +70,7 @@ import dropShadow from './plugins/dropShadow'
 import fill from './plugins/fill'
 import filter from './plugins/filter'
 import stroke from './plugins/stroke'
+import strokeScale from './plugins/strokeScale'
 import strokeWidth from './plugins/strokeWidth'
 import tableLayout from './plugins/tableLayout'
 import textJustification from './plugins/textJustification'
@@ -107,10 +118,19 @@ export default function({ corePlugins: corePluginConfig }) {
   return configurePlugins(corePluginConfig, {
     preflight,
     container,
+    animation,
+    animationDelay,
+    animationDirection,
+    animationDuration,
+    animationFillMode,
+    animationIterationCount,
+    animationPlayState,
+    animationTimingFunction,
     appearance,
     backface,
     backgroundAttachment,
     backgroundBlend,
+    backgroundClip,
     backgroundColor,
     backgroundGradient,
     backgroundPosition,
@@ -143,6 +163,7 @@ export default function({ corePlugins: corePluginConfig }) {
     maxWidth,
     minHeight,
     minWidth,
+    mixBlend,
     objectFit,
     objectPosition,
     opacity,
@@ -167,6 +188,7 @@ export default function({ corePlugins: corePluginConfig }) {
     fill,
     filter,
     stroke,
+    strokeScale,
     strokeWidth,
     tableLayout,
     textJustification,

@@ -6,6 +6,9 @@ export default function() {
         '.block': {
           display: 'block',
         },
+        '.contents': {
+          display: 'contents',
+        },
         '.inline-block': {
           display: 'inline-block',
         },

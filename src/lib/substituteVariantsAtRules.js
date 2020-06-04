@@ -23,27 +23,27 @@ function ensureIncludesDefault(variants) {
 
 const defaultVariantGenerators = config => ({
   default: generateVariantFunction(() => {}),
-  'group-hover': generateVariantFunction(({ modifySelectors, separator }) => {
+  'parent-hover': generateVariantFunction(({ modifySelectors, separator }) => {
     return modifySelectors(({ selector }) => {
       return parser(selectors => {
         selectors.walkClasses(sel => {
-          sel.value = `group:hover${separator}${sel.value}`
+          sel.value = `parent:hover${separator}${sel.value}`
           sel.parent.insertBefore(
             sel,
-            parser().astSync(prefixSelector(config.prefix, '.group:hover '))
+            parser().astSync(prefixSelector(config.prefix, '.parent:hover '))
           )
         })
       }).processSync(selector)
     })
   }),
-  'group-focus': generateVariantFunction(({ modifySelectors, separator }) => {
+  'parent-focus': generateVariantFunction(({ modifySelectors, separator }) => {
     return modifySelectors(({ selector }) => {
       return parser(selectors => {
         selectors.walkClasses(sel => {
-          sel.value = `group:focus${separator}${sel.value}`
+          sel.value = `parent:focus${separator}${sel.value}`
           sel.parent.insertBefore(
             sel,
-            parser().astSync(prefixSelector(config.prefix, '.group:focus '))
+            parser().astSync(prefixSelector(config.prefix, '.parent:focus '))
           )
         })
       }).processSync(selector)
@@ -74,16 +74,16 @@ const defaultVariantGenerators = config => ({
       }).processSync(selector)
     })
   }),
-  'group-interact': generateVariantFunction(({ modifySelectors, separator }) => {
+  'parent-interact': generateVariantFunction(({ modifySelectors, separator }) => {
     return modifySelectors(({ selector }) => {
       return parser(selectors => {
         selectors.each(sel => {
           const parent = sel.parent
           _.forEach([ 'hover', 'focus-within', 'focus', 'active' ], (pseudo => {
             const clone = sel.clone()
-            clone.nodes[0].value = `group:interact${separator}${clone.nodes[0].value}`
+            clone.nodes[0].value = `parent:interact${separator}${clone.nodes[0].value}`
             clone.prepend(parser.pseudo({ value: `:${pseudo} ` }))
-            clone.prepend(parser.className({ value: 'group' }))
+            clone.prepend(parser.className({ value: 'parent' }))
             parent.insertAfter(sel, clone)
           }))
           parent.removeChild(sel)
