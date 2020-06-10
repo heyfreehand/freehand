@@ -1,4 +1,5 @@
 import preflight from './plugins/preflight'
+import root from './plugins/root'
 import container from './plugins/container'
 import animation from './plugins/animation'
 import animationDelay from './plugins/animationDelay'
@@ -117,6 +118,7 @@ import configurePlugins from './util/configurePlugins'
 export default function({ corePlugins: corePluginConfig }) {
   return configurePlugins(corePluginConfig, {
     preflight,
+    root,
     container,
     animation,
     animationDelay,

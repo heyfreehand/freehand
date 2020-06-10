@@ -7,7 +7,7 @@ function run(input, opts = {}) {
 
 test('it looks up values in the theme using dot notation', () => {
   const input = `
-    .banana { color: theme('colors.yellow'); }
+    .banana { color: theme('colors.--yellow'); }
   `
 
   const output = `
@@ -28,7 +28,7 @@ test('it looks up values in the theme using dot notation', () => {
 
 test('quotes are optional around the lookup path', () => {
   const input = `
-    .banana { color: theme(colors.yellow); }
+    .banana { color: theme(colors.--yellow); }
   `
 
   const output = `
@@ -49,7 +49,7 @@ test('quotes are optional around the lookup path', () => {
 
 test('a default value can be provided', () => {
   const input = `
-    .cookieMonster { color: theme('colors.blue', #0000ff); }
+    .cookieMonster { color: theme('colors.--blue', #0000ff); }
   `
 
   const output = `

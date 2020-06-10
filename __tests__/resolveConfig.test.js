@@ -828,7 +828,7 @@ test('the theme function can use a default value if the key is missing', () => {
         yellow: 'yellow',
       },
       borderColor: theme => ({
-        default: theme('colors.gray', 'currentColor'),
+        default: theme('colors.--gray', 'currentColor'),
         ...theme('colors'),
       }),
     },
@@ -1000,8 +1000,8 @@ test('theme values in the extend section are lazily evaluated', () => {
           orange: 'orange',
         },
         borderColor: theme => ({
-          foo: theme('colors.orange'),
-          bar: theme('colors.red'),
+          foo: theme('colors.--orange'),
+          bar: theme('colors.--red'),
         }),
       },
     },
@@ -1018,7 +1018,7 @@ test('theme values in the extend section are lazily evaluated', () => {
         yellow: 'yellow',
       },
       borderColor: theme => ({
-        default: theme('colors.yellow', 'currentColor'),
+        default: theme('colors.--yellow', 'currentColor'),
         ...theme('colors'),
       }),
     },
