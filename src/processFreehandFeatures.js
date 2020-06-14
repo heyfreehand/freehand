@@ -15,6 +15,7 @@ export default function(getConfig) {
   return function(css) {
     const config = getConfig()
     const processedPlugins = processPlugins([...corePlugins(config), ...config.plugins], config)
+    // console.log(processedPlugins.components)
 
     return postcss([
       substituteFreehandAtRules(config, processedPlugins),
@@ -23,6 +24,6 @@ export default function(getConfig) {
       substituteResponsiveAtRules(config),
       substituteScreenAtRules(config),
       substituteClassApplyAtRules(config, processedPlugins.utilities),
-    ]).process(css, { from: _.get(css, 'source.input.file') })
+  ]).process(css, { from: _.get(css, 'source.input.file') })
   }
 }
