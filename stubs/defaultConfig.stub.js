@@ -665,6 +665,7 @@ module.exports = {
     },
     top: (theme, { negative, breakpoints }) => ({
       off: 'auto',
+      offscreen: '-9999px',
       screen: '100vh',
       ...theme('spacing'),
       ...negative(theme('spacing')),
@@ -673,6 +674,7 @@ module.exports = {
     }),
     right: (theme, { negative, breakpoints }) => ({
       off: 'auto',
+      offscreen: '-9999px',
       screen: '100vw',
       ...theme('spacing'),
       ...negative(theme('spacing')),
@@ -681,6 +683,7 @@ module.exports = {
     }),
     bottom: (theme, { negative, breakpoints }) => ({
       off: 'auto',
+      offscreen: '-9999px',
       screen: '100vh',
       ...theme('spacing'),
       ...negative(theme('spacing')),
@@ -689,6 +692,7 @@ module.exports = {
     }),
     left: (theme, { negative, breakpoints }) => ({
       off: 'auto',
+      offscreen: '-9999px',
       screen: '100vw',
       ...theme('spacing'),
       ...negative(theme('spacing')),
