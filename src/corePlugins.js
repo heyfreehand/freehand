@@ -52,7 +52,7 @@ import objectPosition from './plugins/objectPosition'
 import opacity from './plugins/opacity'
 import outline from './plugins/outline'
 import overflow from './plugins/overflow'
-import overScroll from './plugins/overScroll'
+import overscroll from './plugins/overscroll'
 import padding from './plugins/padding'
 import paddingWidth from './plugins/paddingWidth'
 import placeholderColor from './plugins/placeholderColor'
@@ -171,7 +171,7 @@ export default function({ corePlugins: corePluginConfig }) {
     opacity,
     outline,
     overflow,
-    overScroll,
+    overscroll,
     padding,
     paddingWidth,
     placeholderColor,
