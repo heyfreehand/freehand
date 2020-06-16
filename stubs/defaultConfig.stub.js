@@ -647,19 +647,19 @@ module.exports = {
       heavy: '900',
     },
     height: theme => ({
-      auto: 'auto',
+      default: 'auto',
       ...theme('spacing'),
       screen: '100vh',
     }),
     minHeight: theme => ({
-      auto: 'auto',
-      ...theme('spacing'),
+      off: 'none',
       screen: '100vh',
+      ...theme('spacing'),
     }),
     maxHeight: theme => ({
       off: 'none',
-      ...theme('spacing'),
       screen: '100vh',
+      ...theme('spacing'),
     }),
     pin: {
       default: '0',
@@ -785,7 +785,7 @@ module.exports = {
       '2x': '6px',
     },
     width: (theme, { breakpoints }) => ({
-      off: 'none',
+      default: 'auto',
       screen: '100vw',
       ...theme('spacing'),
       ...breakpoints(theme('screens')),
