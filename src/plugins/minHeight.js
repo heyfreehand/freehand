@@ -5,8 +5,9 @@ export default function() {
   return function({ addUtilities, e, theme, variants }) {
     const utilities = _.fromPairs(
       _.map(theme('minHeight'), (value, modifier) => {
+        const className = modifier === 'default' ? 'min-h' : e(`min-h:${modifier}`)
         return [
-          `.${e(`min-h:${modifier}`)}`,
+          `.${className}`,
           {
             'min-height': value,
           },
