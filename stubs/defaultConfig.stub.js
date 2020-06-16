@@ -74,6 +74,7 @@ module.exports = {
     colors: {
       clear: 'transparent',
       current: 'currentColor',
+      outline: 'hsla(220, 60%, 40%, 0.125)',
       black: {
         default: 'hsl(0, 0%, 0%)',
         '5%': 'hsla(0, 0%, 0%, 0.05)',
@@ -249,6 +250,7 @@ module.exports = {
       },
     },
     root: theme => ({
+      outline: theme('colors.outline'),
       gray: theme('colors.gray'),
       red: theme('colors.red'),
       orange: theme('colors.orange'),
@@ -434,7 +436,7 @@ module.exports = {
     },
     borderColor: theme => ({
       ...theme('colors'),
-      default: theme('colors.gray.6', 'currentColor'),
+      default: theme('colors.outline', 'currentColor'),
     }),
     borderRadius: {
       off: '0',
