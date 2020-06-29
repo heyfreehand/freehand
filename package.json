@@ -1,6 +1,6 @@
 {
   "name": "freehand",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "A utility-first CSS library for streamlining user interface development.",
   "license": "MIT",
   "main": "lib/index.js",
