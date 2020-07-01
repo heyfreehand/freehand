@@ -948,11 +948,11 @@ test('the theme function can resolve deep function values', () => {
     important: false,
     separator: ':',
     theme: {
-      spacing: {
+      size: {
         '0': '0',
       },
       width: theme => ({
-        ...theme('spacing'),
+        ...theme('size'),
         '1/3': '33.33333%',
       }),
     },
@@ -969,7 +969,7 @@ test('the theme function can resolve deep function values', () => {
     important: false,
     separator: ':',
     theme: {
-      spacing: {
+      size: {
         '0': '0',
       },
       width: {
@@ -1061,13 +1061,13 @@ test('lazily evaluated values have access to the config utils', () => {
     theme: {
       inset: theme => theme('margin'),
       shift: (theme, { negative }) => ({
-        ...theme('spacing'),
-        ...negative(theme('spacing')),
+        ...theme('size'),
+        ...negative(theme('size')),
       }),
       extend: {
         nudge: (theme, { negative }) => ({
-          ...theme('spacing'),
-          ...negative(theme('spacing')),
+          ...theme('size'),
+          ...negative(theme('size')),
         }),
       },
     },
@@ -1078,15 +1078,15 @@ test('lazily evaluated values have access to the config utils', () => {
     important: false,
     separator: ':',
     theme: {
-      spacing: {
+      size: {
         '1': '1px',
         '2': '2px',
         '3': '3px',
         '4': '4px',
       },
       margin: (theme, { negative }) => ({
-        ...theme('spacing'),
-        ...negative(theme('spacing')),
+        ...theme('size'),
+        ...negative(theme('size')),
       }),
     },
     variants: {},
@@ -1099,7 +1099,7 @@ test('lazily evaluated values have access to the config utils', () => {
     important: false,
     separator: ':',
     theme: {
-      spacing: {
+      size: {
         '1': '1px',
         '2': '2px',
         '3': '3px',
@@ -1199,7 +1199,7 @@ test('the original theme is not mutated', () => {
 test('custom properties are multiplied by -1 for negative values', () => {
   const userConfig = {
     theme: {
-      spacing: {
+      size: {
         '1': '1px',
         '2': '2px',
         '3': '3px',
@@ -1209,8 +1209,8 @@ test('custom properties are multiplied by -1 for negative values', () => {
         baz: 'calc(50% - 10px)',
       },
       margin: (theme, { negative }) => ({
-        ...theme('spacing'),
-        ...negative(theme('spacing')),
+        ...theme('size'),
+        ...negative(theme('size')),
       }),
     },
   }
@@ -1230,7 +1230,7 @@ test('custom properties are multiplied by -1 for negative values', () => {
     important: false,
     separator: ':',
     theme: {
-      spacing: {
+      size: {
         '1': '1px',
         '2': '2px',
         '3': '3px',
