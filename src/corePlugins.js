@@ -72,7 +72,7 @@ import fill from './plugins/fill'
 import filter from './plugins/filter'
 import stroke from './plugins/stroke'
 import strokeScale from './plugins/strokeScale'
-import strokeWidth from './plugins/strokeWidth'
+import strokeSize from './plugins/strokeSize'
 import tableLayout from './plugins/tableLayout'
 import textJustification from './plugins/textJustification'
 import textCase from './plugins/textCase'
@@ -191,7 +191,7 @@ export default function({ corePlugins: corePluginConfig }) {
     filter,
     stroke,
     strokeScale,
-    strokeWidth,
+    strokeSize,
     tableLayout,
     textJustification,
     textCase,
