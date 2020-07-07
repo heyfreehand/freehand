@@ -281,8 +281,14 @@ module.exports = {
       blue: theme('colors.blue'),
       violet: theme('colors.violet'),
       magenta: theme('colors.magenta'),
+      shadow: {
+        ...theme('boxShadow'),
+      },
       size: {
         ...Object.assign({}, ...[ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'].map(prop => ({[prop]: theme('size')[prop]}))),
+      },
+      text: {
+        ...theme('textSize'),
       },
     }),
     gradients: theme => ({
@@ -481,8 +487,8 @@ module.exports = {
     boxShadow: {
       off: 'none',
       clear: '0 0 0 1px transparent',
-      xs: '0 1px 1px hsla(228, 45%, 41%, 5%), 0 2px 4px hsla(228, 45%, 41%, 7.5%)',
-      sm: '0 1px 1px hsla(228, 45%, 41%, 5%), 0 3px 6px hsla(228, 45%, 41%, 7.5%)',
+      xs: '0 1px 1px hsla(228, 45%, 41%, 5%), 0 2px 4px hsla(228, 45%, 41%, 10%)',
+      sm: '0 1px 1px hsla(228, 45%, 41%, 5%), 0 3px 6px hsla(228, 45%, 41%, 10%)',
       default: '0  1px  1px hsla(228, 45%, 41%, 5%), 0  4px 12px hsla(228, 45%, 41%, 7.5%), 0 12px 24px hsla(228, 45%, 41%, 5%)',
       lg: '0  1px  1px hsla(228, 45%, 41%, 7.5%), 0  3px  6px hsla(228, 45%, 41%, 7.5%), 0 10px 30px hsla(228, 45%, 41%, 7.5%), 0  5px 15px hsla(228, 45%, 41%, 7.5%)',
       inner: '0 1px 1px hsla(228, 45%, 41%, 5%) inset, 0 3px 6px hsla(228, 45%, 41%, 7.5%) inset',
