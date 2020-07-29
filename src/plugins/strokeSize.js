@@ -5,7 +5,7 @@ export default function() {
     const utilities = _.fromPairs(
       _.map(theme('strokeSize'), (value, modifier) => {
         return [
-          `.${e(`stroke:${modifier}`)}`,
+          `.${e(`stroke${modifier === 'default' ? '' : `:${modifier}`}`)}`,
           {
             strokeWidth: value,
           },
