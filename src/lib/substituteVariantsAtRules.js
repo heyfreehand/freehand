@@ -49,6 +49,20 @@ const defaultVariantGenerators = config => ({
       }).processSync(selector)
     })
   }),
+  'parent-target': generateVariantFunction(({ modifySelectors, separator }) => {
+    return modifySelectors(({ selector }) => {
+      return parser(selectors => {
+        selectors.walkClasses(sel => {
+          sel.value = `parent:target${separator}${sel.value}`
+          sel.parent.insertBefore(
+            sel,
+            parser().astSync(prefixSelector(config.prefix, '.parent:target '))
+          )
+        })
+      }).processSync(selector)
+    })
+  }),
+  target: generatePseudoClassVariant('target'),
   hover: generatePseudoClassVariant('hover'),
   'focus-within': generatePseudoClassVariant('focus-within'),
   focus: generatePseudoClassVariant('focus'),
