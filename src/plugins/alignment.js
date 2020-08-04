@@ -36,6 +36,9 @@ export default function() {
         [`.${e('as:auto')}`]: {
           'align-self': 'auto',
         },
+        [`.${e('as:baseline')}`]: {
+          'align-self': 'baseline',
+        },
         [`.${e('as:start')}`]: {
           'align-self': 'flex-start',
         },
