@@ -1,3 +1,7 @@
+function opacify(color, opacity) {
+  return color.replace(/hsl\((.*?)\)/gi, `hsla($1, ${opacity})`)
+}
+
 module.exports = {
   prefix: '',
   important: false,
@@ -77,7 +81,7 @@ module.exports = {
       full: '100%',
     },
     colors: {
-      clear: 'transparent',
+      clear: 'hsla(0, 0%, 100%, 0)',
       current: 'currentColor',
       outline: 'hsla(220, 60%, 40%, 0.125)',
       black: {
@@ -295,8 +299,8 @@ module.exports = {
     }),
     gradients: theme => ({
       clear: [ 
-        'transparent', 
-        'transparent', 
+        'hsla(0, 0%, 100%, 0)',
+        'hsla(0, 0%, 100%, 0)',
       ],
       white: [
         'white',
@@ -348,26 +352,26 @@ module.exports = {
       ],
       'white-clear': [
         'white',
-        'transparent',
+        'hsla(360, 100%, 100%, 0)',
       ],
       'silver-clear': [
         'var(--gray-4)',
-        'transparent',
+        opacify(theme('colors.gray.4'), 0),
       ],
       'blue-clear': [
         'var(--blue-6)',
-        'transparent',
+        opacify(theme('colors.blue.6'), 0),
       ],
       'clear-white': [
-        'transparent',
-        'white'
+        'hsla(360, 100%, 100%, 0)',
+        'white',
       ],
       'clear-silver': [
-        'transparent',
+        opacify(theme('colors.gray.4'), 0),
         'var(--gray-4)',
       ],
       'clear-blue': [
-        'transparent',
+        opacify(theme('colors.blue.6'), 0),
         'var(--blue-6)',
       ],
     }),
@@ -488,7 +492,7 @@ module.exports = {
     },
     boxShadow: {
       off: 'none',
-      clear: '0 0 0 1px transparent',
+      clear: '0 0 0 1px hsla(0, 0%, 100%, 0)',
       xs: '0 1px 1px hsla(215, 75%, 36%, 8%), 0 2px 4px hsla(215, 75%, 36%, 12%)',
       sm: '0 1px 1px hsla(215, 75%, 36%, 8%), 0 4px 6px hsla(215, 75%, 36%, 12%)',
       default: '0 1px 1px hsla(215, 75%, 36%, 8%), 0 4px 12px hsla(215, 75%, 36%, 12%), 0 12px 24px hsla(215, 75%, 36%, 6%)',
