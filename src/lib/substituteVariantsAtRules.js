@@ -33,13 +33,13 @@ function generateChildVariant(prefix, pseudoClass, config) {
   })
 }
 
-function generateMultipleVariants(pseudoClasses, prefix, config) {
+function generateMultipleVariants(prefix, config) {
   return generateVariantFunction(({ modifySelectors, separator }) => {
     return modifySelectors(({ selector }) => {
       return parser(selectors => {
         selectors.each(sel => {
           const parent = sel.parent
-          _.forEach(pseudoClasses, (pseudo => {
+          _.forEach([ 'active', 'focus', 'focus-within', 'hover' ], (pseudo => {
             const clone = sel.clone()
             if (!prefix) {
               clone.nodes[0].value = `${config.prefix}interact${separator}${clone.nodes[0].value}`
@@ -70,7 +70,7 @@ const defaultVariantGenerators = config => ({
   'ancestor-active': generateChildVariant('ancestor', 'active', config),
   'ancestor-focus': generateChildVariant('ancestor', 'focus', config),
   'ancestor-hover': generateChildVariant('ancestor', 'hover', config),
-  'ancestor-interact': generateMultipleVariants([ 'active', 'focus', 'hover' ], 'ancestor', config),
+  'ancestor-interact': generateMultipleVariants('ancestor', config),
   'ancestor-target': generateChildVariant('ancestor', 'target', config),
   disabled: generatePseudoClassVariant('disabled'),
   even: generatePseudoClassVariant('nth-child(even)', 'even'),
@@ -78,13 +78,13 @@ const defaultVariantGenerators = config => ({
   focus: generatePseudoClassVariant('focus'),
   'focus-within': generatePseudoClassVariant('focus-within'), 
   hover: generatePseudoClassVariant('hover'),
-  interact: generateMultipleVariants([ 'active', 'focus', 'focus-within', 'hover' ], null, config),
+  interact: generateMultipleVariants(null, config),
   last: generatePseudoClassVariant('last-child', 'last'),
   odd: generatePseudoClassVariant('nth-child(odd)', 'odd'),
   'parent-active': generateChildVariant('parent', 'active', config),
   'parent-focus': generateChildVariant('parent', 'focus', config),
   'parent-hover': generateChildVariant('parent', 'hover', config),
-  'parent-interact': generateMultipleVariants([ 'active', 'focus', 'hover' ], 'parent', config),
+  'parent-interact': generateMultipleVariants('parent', config),
   'parent-target': generateChildVariant('parent', 'target', config),
   target: generatePseudoClassVariant('target'),
   visited: generatePseudoClassVariant('visited'),
