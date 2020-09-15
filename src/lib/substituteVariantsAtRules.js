@@ -17,94 +17,77 @@ function generatePseudoClassVariant(pseudoClass, prefix = pseudoClass) {
   })
 }
 
+function generateChildVariant(prefix, pseudoClass, config) {
+  return generateVariantFunction(({ modifySelectors, separator }) => {
+    return modifySelectors(({ selector }) => {
+      return parser(selectors => {
+        selectors.walkClasses(sel => {
+          sel.value = `${prefix}:${pseudoClass}${separator}${sel.value}`
+          sel.parent.insertBefore(
+            sel,
+            parser().astSync(prefixSelector(config.prefix, `.${prefix}:${pseudoClass} `))
+          )
+        })
+      }).processSync(selector)
+    })
+  })
+}
+
+function generateMultipleVariants(pseudoClasses, prefix, config) {
+  return generateVariantFunction(({ modifySelectors, separator }) => {
+    return modifySelectors(({ selector }) => {
+      return parser(selectors => {
+        selectors.each(sel => {
+          const parent = sel.parent
+          _.forEach(pseudoClasses, (pseudo => {
+            const clone = sel.clone()
+            if (!prefix) {
+              clone.nodes[0].value = `${config.prefix}interact${separator}${clone.nodes[0].value}`
+              clone.append(parser.pseudo({ value: `:${pseudo}` }))
+              sel.parent.insertAfter(sel, clone)
+            } else {
+              clone.nodes[0].value = `${prefix}:interact${separator}${clone.nodes[0].value}`
+              if (prefix === 'parent') clone.prepend(parser.combinator({ value: '>' }))
+              clone.prepend(parser.pseudo({ value: `:${pseudo} ` }))
+              clone.prepend(parser.className({ value: prefix }))
+              parent.insertAfter(sel, clone)
+            }
+          }))
+          parent.removeChild(sel)
+        })
+      }).processSync(selector)
+    })
+  })
+}
+
 function ensureIncludesDefault(variants) {
   return variants.includes('default') ? variants : ['default', ...variants]
 }
 
 const defaultVariantGenerators = config => ({
   default: generateVariantFunction(() => {}),
-  'parent-hover': generateVariantFunction(({ modifySelectors, separator }) => {
-    return modifySelectors(({ selector }) => {
-      return parser(selectors => {
-        selectors.walkClasses(sel => {
-          sel.value = `parent:hover${separator}${sel.value}`
-          sel.parent.insertBefore(
-            sel,
-            parser().astSync(prefixSelector(config.prefix, '.parent:hover '))
-          )
-        })
-      }).processSync(selector)
-    })
-  }),
-  'parent-focus': generateVariantFunction(({ modifySelectors, separator }) => {
-    return modifySelectors(({ selector }) => {
-      return parser(selectors => {
-        selectors.walkClasses(sel => {
-          sel.value = `parent:focus${separator}${sel.value}`
-          sel.parent.insertBefore(
-            sel,
-            parser().astSync(prefixSelector(config.prefix, '.parent:focus '))
-          )
-        })
-      }).processSync(selector)
-    })
-  }),
-  'parent-target': generateVariantFunction(({ modifySelectors, separator }) => {
-    return modifySelectors(({ selector }) => {
-      return parser(selectors => {
-        selectors.walkClasses(sel => {
-          sel.value = `parent:target${separator}${sel.value}`
-          sel.parent.insertBefore(
-            sel,
-            parser().astSync(prefixSelector(config.prefix, '.parent:target '))
-          )
-        })
-      }).processSync(selector)
-    })
-  }),
-  target: generatePseudoClassVariant('target'),
-  hover: generatePseudoClassVariant('hover'),
-  'focus-within': generatePseudoClassVariant('focus-within'),
-  focus: generatePseudoClassVariant('focus'),
   active: generatePseudoClassVariant('active'),
-  visited: generatePseudoClassVariant('visited'),
+  'ancestor-active': generateChildVariant('ancestor', 'active', config),
+  'ancestor-focus': generateChildVariant('ancestor', 'focus', config),
+  'ancestor-hover': generateChildVariant('ancestor', 'hover', config),
+  'ancestor-interact': generateMultipleVariants([ 'active', 'focus', 'hover' ], 'ancestor', config),
+  'ancestor-target': generateChildVariant('ancestor', 'target', config),
   disabled: generatePseudoClassVariant('disabled'),
+  even: generatePseudoClassVariant('nth-child(even)', 'even'),
   first: generatePseudoClassVariant('first-child', 'first'),
+  focus: generatePseudoClassVariant('focus'),
+  'focus-within': generatePseudoClassVariant('focus-within'), 
+  hover: generatePseudoClassVariant('hover'),
+  interact: generateMultipleVariants([ 'active', 'focus', 'focus-within', 'hover' ], null, config),
   last: generatePseudoClassVariant('last-child', 'last'),
   odd: generatePseudoClassVariant('nth-child(odd)', 'odd'),
-  even: generatePseudoClassVariant('nth-child(even)', 'even'),
-  interact: generateVariantFunction(({ modifySelectors, separator }) => {
-    return modifySelectors(({ selector }) => {
-      return parser(selectors => {
-        selectors.each(sel => {
-          _.forEach([ 'hover', 'focus-within', 'focus', 'active' ], (pseudo => {
-            const clone = sel.clone()
-            clone.nodes[0].value = `${config.prefix}interact${separator}${clone.nodes[0].value}`
-            clone.append(parser.pseudo({ value: `:${pseudo}` }))
-            sel.parent.insertAfter(sel, clone)
-          }))
-          sel.parent.removeChild(sel)
-        })
-      }).processSync(selector)
-    })
-  }),
-  'parent-interact': generateVariantFunction(({ modifySelectors, separator }) => {
-    return modifySelectors(({ selector }) => {
-      return parser(selectors => {
-        selectors.each(sel => {
-          const parent = sel.parent
-          _.forEach([ 'hover', 'focus-within', 'focus', 'active' ], (pseudo => {
-            const clone = sel.clone()
-            clone.nodes[0].value = `parent:interact${separator}${clone.nodes[0].value}`
-            clone.prepend(parser.pseudo({ value: `:${pseudo} ` }))
-            clone.prepend(parser.className({ value: 'parent' }))
-            parent.insertAfter(sel, clone)
-          }))
-          parent.removeChild(sel)
-        })
-      }).processSync(selector)
-    })
-  }),
+  'parent-active': generateChildVariant('parent', 'active', config),
+  'parent-focus': generateChildVariant('parent', 'focus', config),
+  'parent-hover': generateChildVariant('parent', 'hover', config),
+  'parent-interact': generateMultipleVariants([ 'active', 'focus', 'hover' ], 'parent', config),
+  'parent-target': generateChildVariant('parent', 'target', config),
+  target: generatePseudoClassVariant('target'),
+  visited: generatePseudoClassVariant('visited'),
 })
 
 export default function(config, { variantGenerators: pluginVariantGenerators }) {
